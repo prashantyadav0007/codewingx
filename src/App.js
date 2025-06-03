@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from './Components/Navbar';
+import Hero from './Components/Hero';
+import Services from './Components/Services';
+import Projects from './Components/Projects';
+// import CTA from './Components/CTA'; // if you don’t have CTA.js, comment this
+import Footer from './Components/Footer';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-dark text-white">
+      <Navbar />
+      <Hero />
+      <Services />
+      <Projects />
+      {/* <CTA /> */}
+      <Footer />
     </div>
   );
 }
