@@ -51,39 +51,10 @@ const Stats = () => {
   return (
     <div className="stats-container">
       {/* Header */}
-      <header className="header">
-        <div className="nav">
-          <div className="logo">
-            <span className="logo-icon">⚫</span>
-            <span className="logo-text">Dark X</span>
-          </div>
-          <nav className="nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#pages">Pages ↓</a>
-            <a href="#contact">Contact</a>
-          </nav>
-          <div className="nav-buttons">
-            <button className="sign-in-btn">Sign in</button>
-            <button className="get-started-btn">Get started</button>
-          </div>
-        </div>
-      </header>
+     
 
       {/* Hero Section */}
-      <section className="hero-section">
-        <div className="hero-content">
-          <h1 className="hero-title">
-            We're on a mission to <br />
-            <span className="gradient-text">democratize finance</span>
-          </h1>
-          <p className="hero-description">
-            Lorem ipsum dolor sit amet consectetur adipiscing elit blandit<br />
-            id dolor venenatis auctor maecenas egestas arcu ut.
-          </p>
-        </div>
-      </section>
+    
 
       {/* Stats Section */}
       <section className="stats-section">
