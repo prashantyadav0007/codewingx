@@ -12,10 +12,15 @@ body {
   overflow-x: hidden;
 }
 
+/* Landing Page Container */
 .landing-page {
   min-height: 100vh;
   background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
   position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
 }
 
 /* Header Styles */
@@ -77,12 +82,15 @@ body {
 }
 
 .logo-text {
+  background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 50%, #6366f1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-size: 1.5rem;
   font-weight: 700;
-  color: #ffffff;
 }
 
-/* Navigation Menu */
+/* Desktop Navigation Menu */
 .nav-menu {
   display: flex;
   align-items: center;
@@ -176,12 +184,12 @@ body {
 
 /* Mobile Menu Toggle */
 .mobile-menu-toggle {
-  display: none;
   background: none;
   border: none;
   color: #ffffff;
   cursor: pointer;
   padding: 0.5rem;
+  display: none;
 }
 
 /* Mobile Menu */
@@ -275,6 +283,7 @@ body {
   gap: 1.5rem;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .buy-template-btn {
@@ -334,22 +343,17 @@ body {
   overflow: hidden;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
-}
-
-.preview-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  border-color: rgba(255, 255, 255, 0.2);
+  aspect-ratio: 4/5;
 }
 
 .preview-item.main {
   aspect-ratio: 16/10;
 }
 
-.preview-item.secondary,
-.preview-item.tertiary,
-.preview-item.quaternary {
-  aspect-ratio: 4/5;
+.preview-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .preview-header {
@@ -435,7 +439,10 @@ body {
 }
 
 @media (max-width: 768px) {
-  .nav-menu,
+  .nav-menu {
+    display: none;
+  }
+  
   .nav-actions .sign-in-btn,
   .nav-actions .get-started-btn {
     display: none;

@@ -1,19 +1,14 @@
 import React from 'react';
 
-// Import components with error checking
+// Import components with error checking and proper file extensions
 import Header from './Components/Header/Header';
-import Hero from './Components/Hero/Hero';
+import About from './Components/About/About'; // Updated path with subfolder
 import Features from './Components/Features/Features';
-import Stats from './Components/Stats/Stats';
 import Testimonials from './Components/Testimonials/Testimonials';
-import CTA from './Components/CTA/CTA';
 import Footer from './Components/Footer/Footer';
 
 // Import global styles
 import './App.css';
-import './styles/globals.css';
-import './styles/variables.css';
-import './styles/components.css';
 
 // Error Boundary Component
 class ErrorBoundary extends React.Component {
@@ -60,11 +55,10 @@ class ErrorBoundary extends React.Component {
 // Debug component imports (remove in production)
 console.log('Component Import Check:', {
   Header: typeof Header,
-  Hero: typeof Hero,
+  About: typeof About,
   Features: typeof Features,
-  Stats: typeof Stats,
+ 
   Testimonials: typeof Testimonials,
-  CTA: typeof CTA,
   Footer: typeof Footer
 });
 
@@ -87,24 +81,18 @@ function App() {
 
       {/* Main content */}
       <main>
-        <SafeComponent name="Hero">
-          <Hero />
+        <SafeComponent name="About">
+          <About />
         </SafeComponent>
         
         <SafeComponent name="Features">
           <Features />
         </SafeComponent>
         
-        <SafeComponent name="Stats">
-          <Stats />
-        </SafeComponent>
+      
         
         <SafeComponent name="Testimonials">
           <Testimonials />
-        </SafeComponent>
-        
-        <SafeComponent name="CTA">
-          <CTA />
         </SafeComponent>
       </main>
 
