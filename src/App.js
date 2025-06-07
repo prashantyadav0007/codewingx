@@ -3,8 +3,8 @@ import React from 'react';
 // Import components with error checking and proper file extensions
 import Header from './Components/Header/Header';
 import About from './Components/About/About'; // Updated path with subfolder
-import Features from './Components/Features/Features';
-import Testimonials from './Components/Testimonials/Testimonials';
+// import Features from './Components/Features/Features';
+import Services from './Components/Services/Services';
 import Footer from './Components/Footer/Footer';
 
 // Import global styles
@@ -56,9 +56,9 @@ class ErrorBoundary extends React.Component {
 console.log('Component Import Check:', {
   Header: typeof Header,
   About: typeof About,
-  Features: typeof Features,
+  // Features: typeof Features,
  
-  Testimonials: typeof Testimonials,
+  Services: typeof Services,
   Footer: typeof Footer
 });
 
@@ -84,15 +84,15 @@ function App() {
         <SafeComponent name="About">
           <About />
         </SafeComponent>
-        
+{/*         
         <SafeComponent name="Features">
           <Features />
-        </SafeComponent>
+        </SafeComponent> */}
         
       
         
         <SafeComponent name="Testimonials">
-          <Testimonials />
+          <Services />
         </SafeComponent>
       </main>
 

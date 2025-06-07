@@ -1,7 +1,7 @@
  /* Main Container */
 .about-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #0f172a 0%, #581c87 50%, #0f172a 100%);
+  background: linear-gradient(135deg, #2a0359 0%,  #23235c 100%);
   color: white;
   overflow: hidden;
 }
