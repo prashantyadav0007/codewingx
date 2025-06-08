@@ -48,10 +48,11 @@ const Header = () => {
             {!isMobile && (
               <div className="nav-menu">
                 <a href="#home" className="nav-link">Home</a>
-                <a href="#about" className="nav-link">About</a>
-                <a href="#Services" className="nav-link">Services</a>
+                <a href="/services" className="nav-link">Services</a>
              
                 <a href="#cart" className="nav-link cart-link">Projects </a>
+                <a href="/about" className="nav-link">About</a>
+
               </div>
             )}
 

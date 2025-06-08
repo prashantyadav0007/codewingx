@@ -160,17 +160,9 @@ const Services = () => {
           })}
         </div>
 
-        {/* Additional decorative elements */}
-        <div className="footer-decoration">
-          <div className="decorative-dots">
-            <div className="dot dot-1"></div>
-            <div className="dot dot-2"></div>
-            <div className="dot dot-3"></div>
-          </div>
-          <p className="footer-text">
-            Crafted with <span className="heart">❤️</span> using cutting-edge technology
-          </p>
-        </div>
+       
+         
+     
       </div>
     </div>
   );
