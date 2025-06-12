@@ -11,9 +11,9 @@ const Homepage = () => {
     <div>
       <Header />
       
-        <About />
+      
         <Services /> 
-        
+          <About />
      
 
   

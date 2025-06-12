@@ -73,7 +73,7 @@ const Services = () => {
 
       <div className="services-content">
         <div className="services-header">
-          <h2 className="main-title">Our Services</h2>
+          <h2 className="main-title">Our Core Services</h2>
           <div className="title-divider"></div>
           <p className="subtitle">
             Transforming ideas into digital excellence with cutting-edge solutions that blend 

@@ -47,11 +47,15 @@ const Header = () => {
             {/* Desktop Navigation */}
             {!isMobile && (
               <div className="nav-menu">
-                <a href="#home" className="nav-link">Home</a>
+                <a href="#home" className="nav-link">About</a>
                 <a href="/services" className="nav-link">Services</a>
+               <a href="/services" className="nav-link">Industries</a>
+               <a href="/services" className="nav-link">Solutions</a>
+               <a href="/services" className="nav-link">Technologies</a>
+
+
              
                 <a href="#cart" className="nav-link cart-link">Projects </a>
-                <a href="/about" className="nav-link">About</a>
 
               </div>
             )}
