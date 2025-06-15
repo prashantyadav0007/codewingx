@@ -9,6 +9,7 @@ const Homepage = lazy(() => import('./Components/Homepage/Homepage'));
 const About = lazy(() => import('./Components/About/About'));
 const Services = lazy(() => import('./Components/Services/Services'));
 const Features = lazy(() => import('./Components/Features/Features'));
+const Aboutcompany = lazy(() => import('./Components/About/Company/Aboutcompany/Aboutcompany'));
 
 const LoadingFallback = () => (
   <div style={{ 
@@ -34,6 +35,8 @@ const App = () => {
            <Route path="/about" element={<About />} />
 
           <Route path="/features" element={<Features />} />
+           <Route path="/aboutcompany" element={<Aboutcompany />} />
+
           <Route path="*" element={<div>Page not found</div>} />
         </Routes>
       </Suspense>

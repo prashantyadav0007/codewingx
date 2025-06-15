@@ -173,7 +173,7 @@ const Header = () => {
                   <div className="mobile-dropdown-content">
                     <div className="mobile-dropdown-section">
                       <h4 className="mobile-dropdown-section-title">Company</h4>
-                      <a href="/about/company" className="mobile-dropdown-link" onClick={closeMobileMenu}>About Company</a>
+                      <a href="/aboutcompany" className="mobile-dropdown-link" onClick={closeMobileMenu}>About Company</a>
                       <a href="/about/mission" className="mobile-dropdown-link" onClick={closeMobileMenu}>Mission</a>
                       <a href="/about/leadership" className="mobile-dropdown-link" onClick={closeMobileMenu}>Leadership</a>
                       <a href="/about/team" className="mobile-dropdown-link" onClick={closeMobileMenu}>Our Team</a>
