@@ -6,7 +6,11 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
+  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
+  const [isIndustriesDropdownOpen, setIsIndustriesDropdownOpen] = useState(false);
   const [isMobileAboutDropdownOpen, setIsMobileAboutDropdownOpen] = useState(false);
+  const [isMobileServicesDropdownOpen, setIsMobileServicesDropdownOpen] = useState(false);
+  const [isMobileIndustriesDropdownOpen, setIsMobileIndustriesDropdownOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
 
   useEffect(() => {
@@ -32,24 +36,64 @@ const Header = () => {
     // Close mobile dropdown when main menu closes
     if (isMenuOpen) {
       setIsMobileAboutDropdownOpen(false);
+      setIsMobileServicesDropdownOpen(false);
+      setIsMobileIndustriesDropdownOpen(false);
     }
   };
 
   const handleAboutMouseEnter = () => {
     setIsAboutDropdownOpen(true);
+    setIsServicesDropdownOpen(false);
+    setIsIndustriesDropdownOpen(false);
   };
 
   const handleAboutMouseLeave = () => {
     setIsAboutDropdownOpen(false);
   };
 
+  const handleServicesMouseEnter = () => {
+    setIsServicesDropdownOpen(true);
+    setIsAboutDropdownOpen(false);
+    setIsIndustriesDropdownOpen(false);
+  };
+
+  const handleServicesMouseLeave = () => {
+    setIsServicesDropdownOpen(false);
+  };
+
+  const handleIndustriesMouseEnter = () => {
+    setIsIndustriesDropdownOpen(true);
+    setIsAboutDropdownOpen(false);
+    setIsServicesDropdownOpen(false);
+  };
+
+  const handleIndustriesMouseLeave = () => {
+    setIsIndustriesDropdownOpen(false);
+  };
+
   const toggleMobileAboutDropdown = () => {
     setIsMobileAboutDropdownOpen(!isMobileAboutDropdownOpen);
+    setIsMobileServicesDropdownOpen(false);
+    setIsMobileIndustriesDropdownOpen(false);
+  };
+
+  const toggleMobileServicesDropdown = () => {
+    setIsMobileServicesDropdownOpen(!isMobileServicesDropdownOpen);
+    setIsMobileAboutDropdownOpen(false);
+    setIsMobileIndustriesDropdownOpen(false);
+  };
+
+  const toggleMobileIndustriesDropdown = () => {
+    setIsMobileIndustriesDropdownOpen(!isMobileIndustriesDropdownOpen);
+    setIsMobileAboutDropdownOpen(false);
+    setIsMobileServicesDropdownOpen(false);
   };
 
   const closeMobileMenu = () => {
     setIsMenuOpen(false);
     setIsMobileAboutDropdownOpen(false);
+    setIsMobileServicesDropdownOpen(false);
+    setIsMobileIndustriesDropdownOpen(false);
   };
 
   const isMobile = windowWidth <= 768;
@@ -124,8 +168,108 @@ const Header = () => {
                   </div>
                 </div>
                 
-                <a href="/services" className="nav-link">Services</a>
-                <a href="/industries" className="nav-link">Industries</a>
+                <div 
+                  className="nav-dropdown"
+                  onMouseEnter={handleServicesMouseEnter}
+                  onMouseLeave={handleServicesMouseLeave}
+                >
+                  <a href="#services" className="nav-link dropdown-trigger">
+                    Services
+                    <ChevronDown 
+                      size={16} 
+                      className={`dropdown-chevron ${isServicesDropdownOpen ? 'rotated' : ''}`}
+                    />
+                  </a>
+                  
+                  <div className={`dropdown-menu services-dropdown ${isServicesDropdownOpen ? 'open' : ''}`}>
+                    <div className="dropdown-content">
+                      <div className="dropdown-section">
+                        <h4 className="dropdown-section-title">Development</h4>
+                        <a href="/services/software-development" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>Software Development</a>
+                        <a href="/services/web-development" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>Web Development</a>
+                        <a href="/services/mobile-app-development" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>Mobile App Development</a>
+                        <a href="/services/ux-design" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>UX Design</a>
+                        <a href="/services/ui-design" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>UI Design</a>
+                        <a href="/services/testing-qa" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>Testing and QA</a>
+                      </div>
+                      
+                      <div className="dropdown-section">
+                        <h4 className="dropdown-section-title">Consulting</h4>
+                        <a href="/services/it-consulting" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>IT Consulting</a>
+                        <a href="/services/digital-transformation" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>Digital Transformation</a>
+                        <a href="/services/it-outsourcing" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>IT Outsourcing</a>
+                        <a href="/services/managed-it-services" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>Managed IT Services</a>
+                        <a href="/services/application-services" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>Application Services</a>
+                        <a href="/services/data-analytics" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>Data Analytics</a>
+                      </div>
+                      
+                      <div className="dropdown-section">
+                        <h4 className="dropdown-section-title">Support</h4>
+                        <a href="/services/it-support" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>IT Support</a>
+                        <a href="/services/infrastructure-services" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>Infrastructure Services</a>
+                        <a href="/services/it-help-desk" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>IT Help Desk</a>
+                        <a href="/services/cybersecurity" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>Cybersecurity</a>
+                        <a href="/services/compliance-services" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>Compliance Services</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div 
+                  className="nav-dropdown"
+                  onMouseEnter={handleIndustriesMouseEnter}
+                  onMouseLeave={handleIndustriesMouseLeave}
+                >
+                  <a href="#industries" className="nav-link dropdown-trigger">
+                    Industries
+                    <ChevronDown 
+                      size={16} 
+                      className={`dropdown-chevron ${isIndustriesDropdownOpen ? 'rotated' : ''}`}
+                    />
+                  </a>
+                  
+                  <div className={`dropdown-menu industries-dropdown ${isIndustriesDropdownOpen ? 'open' : ''}`}>
+                    <div className="dropdown-content">
+                      <div className="dropdown-section">
+                        <h4 className="dropdown-section-title">Healthcare</h4>
+                        <a href="/industries/healthcare-providers" className="dropdown-link" onClick={() => setIsIndustriesDropdownOpen(false)}>Healthcare Providers</a>
+                        <a href="/industries/medical-devices" className="dropdown-link" onClick={() => setIsIndustriesDropdownOpen(false)}>Medical Devices & Diagnostics</a>
+                        <a href="/industries/medical-laboratories" className="dropdown-link" onClick={() => setIsIndustriesDropdownOpen(false)}>Medical Laboratories</a>
+                        <a href="/industries/contract-research" className="dropdown-link" onClick={() => setIsIndustriesDropdownOpen(false)}>Contract Research Organizations</a>
+                        <a href="/industries/biotech-pharma" className="dropdown-link" onClick={() => setIsIndustriesDropdownOpen(false)}>Biotech & Pharma</a>
+                        <a href="/industries/healthcare-payers" className="dropdown-link" onClick={() => setIsIndustriesDropdownOpen(false)}>Healthcare Payers</a>
+                      </div>
+                      
+                      <div className="dropdown-section">
+                        <h4 className="dropdown-section-title">Finance</h4>
+                        <a href="/industries/financial-services" className="dropdown-link" onClick={() => setIsIndustriesDropdownOpen(false)}>Financial Services</a>
+                        <a href="/industries/banking" className="dropdown-link" onClick={() => setIsIndustriesDropdownOpen(false)}>Banking</a>
+                        <a href="/industries/insurance" className="dropdown-link" onClick={() => setIsIndustriesDropdownOpen(false)}>Insurance</a>
+                        <a href="/industries/lending" className="dropdown-link" onClick={() => setIsIndustriesDropdownOpen(false)}>Lending</a>
+                        <a href="/industries/investment" className="dropdown-link" onClick={() => setIsIndustriesDropdownOpen(false)}>Investment</a>
+                        <a href="/industries/fintech" className="dropdown-link" onClick={() => setIsIndustriesDropdownOpen(false)}>FinTech</a>
+                        <a href="/industries/payments" className="dropdown-link" onClick={() => setIsIndustriesDropdownOpen(false)}>Payments</a>
+                      </div>
+                      
+                      <div className="dropdown-section">
+                        <h4 className="dropdown-section-title">Other Industries</h4>
+                        <a href="/industries/manufacturing" className="dropdown-link" onClick={() => setIsIndustriesDropdownOpen(false)}>Manufacturing</a>
+                        <a href="/industries/retail" className="dropdown-link" onClick={() => setIsIndustriesDropdownOpen(false)}>Retail</a>
+                        <a href="/industries/transportation" className="dropdown-link" onClick={() => setIsIndustriesDropdownOpen(false)}>Transportation and Logistics</a>
+                        <a href="/industries/oil-gas" className="dropdown-link" onClick={() => setIsIndustriesDropdownOpen(false)}>Oil and Gas</a>
+                        <a href="/industries/professional-services" className="dropdown-link" onClick={() => setIsIndustriesDropdownOpen(false)}>Professional Services</a>
+                        <a href="/industries/education" className="dropdown-link" onClick={() => setIsIndustriesDropdownOpen(false)}>Education</a>
+                        <a href="/industries/government" className="dropdown-link" onClick={() => setIsIndustriesDropdownOpen(false)}>Government</a>
+                        <a href="/industries/non-profit" className="dropdown-link" onClick={() => setIsIndustriesDropdownOpen(false)}>Non-Profit</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                
+                
                 <a href="/solutions" className="nav-link">Solutions</a>
                 <a href="/technologies" className="nav-link">Technologies</a>
                 <a href="#projects" className="nav-link cart-link">Projects</a>
@@ -210,8 +354,104 @@ const Header = () => {
                 </div>
               </div>
 
-              <a href="#services" className="mobile-nav-link" onClick={closeMobileMenu}>Services</a>
-              <a href="#industries" className="mobile-nav-link" onClick={closeMobileMenu}>Industries</a>
+              {/* Mobile Services Dropdown */}
+              <div className="mobile-nav-dropdown">
+                <button 
+                  className="mobile-nav-link dropdown-trigger-mobile" 
+                  onClick={toggleMobileServicesDropdown}
+                >
+                  Services
+                  <ChevronDown 
+                    size={16} 
+                    className={`dropdown-chevron-mobile ${isMobileServicesDropdownOpen ? 'rotated' : ''}`}
+                  />
+                </button>
+                
+                <div className={`mobile-dropdown-menu ${isMobileServicesDropdownOpen ? 'open' : ''}`}>
+                  <div className="mobile-dropdown-content">
+                    <div className="mobile-dropdown-section">
+                      <h4 className="mobile-dropdown-section-title">Development</h4>
+                      <a href="/services/software-development" className="mobile-dropdown-link" onClick={closeMobileMenu}>Software Development</a>
+                      <a href="/services/web-development" className="mobile-dropdown-link" onClick={closeMobileMenu}>Web Development</a>
+                      <a href="/services/mobile-app-development" className="mobile-dropdown-link" onClick={closeMobileMenu}>Mobile App Development</a>
+                      <a href="/services/ux-design" className="mobile-dropdown-link" onClick={closeMobileMenu}>UX Design</a>
+                      <a href="/services/ui-design" className="mobile-dropdown-link" onClick={closeMobileMenu}>UI Design</a>
+                      <a href="/services/testing-qa" className="mobile-dropdown-link" onClick={closeMobileMenu}>Testing and QA</a>
+                    </div>
+                    
+                    <div className="mobile-dropdown-section">
+                      <h4 className="mobile-dropdown-section-title">Consulting</h4>
+                      <a href="/services/it-consulting" className="mobile-dropdown-link" onClick={closeMobileMenu}>IT Consulting</a>
+                      <a href="/services/digital-transformation" className="mobile-dropdown-link" onClick={closeMobileMenu}>Digital Transformation</a>
+                      <a href="/services/it-outsourcing" className="mobile-dropdown-link" onClick={closeMobileMenu}>IT Outsourcing</a>
+                      <a href="/services/managed-it-services" className="mobile-dropdown-link" onClick={closeMobileMenu}>Managed IT Services</a>
+                      <a href="/services/application-services" className="mobile-dropdown-link" onClick={closeMobileMenu}>Application Services</a>
+                      <a href="/services/data-analytics" className="mobile-dropdown-link" onClick={closeMobileMenu}>Data Analytics</a>
+                    </div>
+                    
+                    <div className="mobile-dropdown-section">
+                      <h4 className="mobile-dropdown-section-title">Support</h4>
+                      <a href="/services/it-support" className="mobile-dropdown-link" onClick={closeMobileMenu}>IT Support</a>
+                      <a href="/services/infrastructure-services" className="mobile-dropdown-link" onClick={closeMobileMenu}>Infrastructure Services</a>
+                      <a href="/services/it-help-desk" className="mobile-dropdown-link" onClick={closeMobileMenu}>IT Help Desk</a>
+                      <a href="/services/cybersecurity" className="mobile-dropdown-link" onClick={closeMobileMenu}>Cybersecurity</a>
+                      <a href="/services/compliance-services" className="mobile-dropdown-link" onClick={closeMobileMenu}>Compliance Services</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Mobile Industries Dropdown */}
+              <div className="mobile-nav-dropdown">
+                <button 
+                  className="mobile-nav-link dropdown-trigger-mobile" 
+                  onClick={toggleMobileIndustriesDropdown}
+                >
+                  Industries
+                  <ChevronDown 
+                    size={16} 
+                    className={`dropdown-chevron-mobile ${isMobileIndustriesDropdownOpen ? 'rotated' : ''}`}
+                  />
+                </button>
+                
+                <div className={`mobile-dropdown-menu ${isMobileIndustriesDropdownOpen ? 'open' : ''}`}>
+                  <div className="mobile-dropdown-content">
+                    <div className="mobile-dropdown-section">
+                      <h4 className="mobile-dropdown-section-title">Healthcare</h4>
+                      <a href="/industries/healthcare-providers" className="mobile-dropdown-link" onClick={closeMobileMenu}>Healthcare Providers</a>
+                      <a href="/industries/medical-devices" className="mobile-dropdown-link" onClick={closeMobileMenu}>Medical Devices & Diagnostics</a>
+                      <a href="/industries/medical-laboratories" className="mobile-dropdown-link" onClick={closeMobileMenu}>Medical Laboratories</a>
+                      <a href="/industries/contract-research" className="mobile-dropdown-link" onClick={closeMobileMenu}>Contract Research Organizations</a>
+                      <a href="/industries/biotech-pharma" className="mobile-dropdown-link" onClick={closeMobileMenu}>Biotech & Pharma</a>
+                      <a href="/industries/healthcare-payers" className="mobile-dropdown-link" onClick={closeMobileMenu}>Healthcare Payers</a>
+                    </div>
+                    
+                    <div className="mobile-dropdown-section">
+                      <h4 className="mobile-dropdown-section-title">Finance</h4>
+                      <a href="/industries/financial-services" className="mobile-dropdown-link" onClick={closeMobileMenu}>Financial Services</a>
+                      <a href="/industries/banking" className="mobile-dropdown-link" onClick={closeMobileMenu}>Banking</a>
+                      <a href="/industries/insurance" className="mobile-dropdown-link" onClick={closeMobileMenu}>Insurance</a>
+                      <a href="/industries/lending" className="mobile-dropdown-link" onClick={closeMobileMenu}>Lending</a>
+                      <a href="/industries/investment" className="mobile-dropdown-link" onClick={closeMobileMenu}>Investment</a>
+                      <a href="/industries/fintech" className="mobile-dropdown-link" onClick={closeMobileMenu}>FinTech</a>
+                      <a href="/industries/payments" className="mobile-dropdown-link" onClick={closeMobileMenu}>Payments</a>
+                    </div>
+                    
+                    <div className="mobile-dropdown-section">
+                      <h4 className="mobile-dropdown-section-title">Other Industries</h4>
+                      <a href="/industries/manufacturing" className="mobile-dropdown-link" onClick={closeMobileMenu}>Manufacturing</a>
+                      <a href="/industries/retail" className="mobile-dropdown-link" onClick={closeMobileMenu}>Retail</a>
+                      <a href="/industries/transportation" className="mobile-dropdown-link" onClick={closeMobileMenu}>Transportation and Logistics</a>
+                      <a href="/industries/oil-gas" className="mobile-dropdown-link" onClick={closeMobileMenu}>Oil and Gas</a>
+                      <a href="/industries/professional-services" className="mobile-dropdown-link" onClick={closeMobileMenu}>Professional Services</a>
+                      <a href="/industries/education" className="mobile-dropdown-link" onClick={closeMobileMenu}>Education</a>
+                      <a href="/industries/government" className="mobile-dropdown-link" onClick={closeMobileMenu}>Government</a>
+                      <a href="/industries/non-profit" className="mobile-dropdown-link" onClick={closeMobileMenu}>Non-Profit</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <a href="#solutions" className="mobile-nav-link" onClick={closeMobileMenu}>Solutions</a>
               <a href="#technologies" className="mobile-nav-link" onClick={closeMobileMenu}>Technologies</a>
               <a href="#projects" className="mobile-nav-link" onClick={closeMobileMenu}>Projects</a>
