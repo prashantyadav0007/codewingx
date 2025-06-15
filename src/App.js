@@ -38,7 +38,7 @@ const App = () => {
         </Routes>
       </Suspense>
 
-      <Footer />
+      
     </Router>
   );
   

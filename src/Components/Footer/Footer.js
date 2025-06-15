@@ -1,14 +1,27 @@
 import React from 'react';
+import { Facebook, Twitter, Instagram, Linkedin, Youtube, MessageCircle, Mail, ArrowRight, Sparkles } from 'lucide-react';
 import './Footer.css';
 
 const Footer = () => {
   return (
     <footer className="footer">
+      {/* Decorative background elements */}
+      <div className="footer-decoration">
+        <div className="decoration-circle decoration-circle-1"></div>
+        <div className="decoration-circle decoration-circle-2"></div>
+        <div className="decoration-circle decoration-circle-3"></div>
+        <div className="decoration-gradient decoration-gradient-1"></div>
+        <div className="decoration-gradient decoration-gradient-2"></div>
+      </div>
+      
       <div className="footer-container">
         <div className="footer-content">
           {/* Pages Section */}
           <div className="footer-section">
-            <h3 className="footer-title">Pages</h3>
+            <h3 className="footer-title">
+              <Sparkles className="title-icon" />
+              Pages
+            </h3>
             <ul className="footer-links">
               <li><a href="/sales-home">Sales Home</a></li>
               <li><a href="/primary-home">Primary Home</a></li>
@@ -27,32 +40,12 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Second Column */}
-          <div className="footer-section">
-            <h3 className="footer-title-invisible">Links</h3>
-            <ul className="footer-links">
-              <li><a href="/integrations">Integrations</a></li>
-              <li>
-                <a href="/integration-single">Integration Single</a>
-                <span className="cms-badge">CMS</span>
-              </li>
-              <li><a href="/careers">Careers</a></li>
-              <li>
-                <a href="/careers-single">Careers Single</a>
-                <span className="cms-badge">CMS</span>
-              </li>
-              <li><a href="/features">Features</a></li>
-              <li><a href="/team">Team</a></li>
-              <li>
-                <a href="/team-single">Team Single</a>
-                <span className="cms-badge">CMS</span>
-              </li>
-            </ul>
-          </div>
-
           {/* Utility Pages Section */}
           <div className="footer-section">
-            <h3 className="footer-title">Utility Pages</h3>
+            <h3 className="footer-title">
+              <Sparkles className="title-icon" />
+              Utility Pages
+            </h3>
             <ul className="footer-links">
               <li><a href="/start-here">Start Here</a></li>
               <li><a href="/style-guide">Style Guide</a></li>
@@ -66,36 +59,44 @@ const Footer = () => {
 
           {/* Newsletter Section */}
           <div className="footer-section newsletter-section">
-            <h3 className="footer-title">Subscribe to our newsletter</h3>
+            <h3 className="footer-title">
+              <Mail className="title-icon" />
+              Subscribe to our newsletter
+            </h3>
             <p className="newsletter-description">
               Lorem ipsum dolor sit amet consectetur adipiscing elit non amet arcu auctor orci vitae
             </p>
             <div className="newsletter-form">
-              <input 
-                type="email" 
-                placeholder="Your email address" 
-                className="email-input"
-              />
-              <button className="subscribe-btn">Subscribe</button>
+              <div className="input-wrapper">
+                <input 
+                  type="email" 
+                  placeholder="Your email address" 
+                  className="email-input"
+                />
+                <button className="subscribe-btn">
+                  Subscribe
+                  <ArrowRight className="btn-icon" />
+                </button>
+              </div>
             </div>
             <div className="social-links">
-              <a href="#" className="social-link facebook">
-                <i className="fab fa-facebook-f"></i>
+              <a href="#" className="social-link facebook" title="Facebook">
+                <Facebook size={18} />
               </a>
-              <a href="#" className="social-link twitter">
-                <i className="fab fa-twitter"></i>
+              <a href="#" className="social-link twitter" title="Twitter">
+                <Twitter size={18} />
               </a>
-              <a href="#" className="social-link instagram">
-                <i className="fab fa-instagram"></i>
+              <a href="#" className="social-link instagram" title="Instagram">
+                <Instagram size={18} />
               </a>
-              <a href="#" className="social-link linkedin">
-                <i className="fab fa-linkedin-in"></i>
+              <a href="#" className="social-link linkedin" title="LinkedIn">
+                <Linkedin size={18} />
               </a>
-              <a href="#" className="social-link youtube">
-                <i className="fab fa-youtube"></i>
+              <a href="#" className="social-link youtube" title="YouTube">
+                <Youtube size={18} />
               </a>
-              <a href="#" className="social-link whatsapp">
-                <i className="fab fa-whatsapp"></i>
+              <a href="#" className="social-link whatsapp" title="WhatsApp">
+                <MessageCircle size={18} />
               </a>
             </div>
           </div>
@@ -104,18 +105,13 @@ const Footer = () => {
         {/* Footer Bottom */}
         <div className="footer-bottom">
           <div className="footer-logo">
-            <div className="logo-icon"></div>
-
-              <span style={{
-              background: 'linear-gradient(135deg, #ec4899 0%, #8b5cf6 50%, #6366f1 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }}>Codewingx</span>
+            <div className="logo-section">
+              <img src="/c.png" alt="CodeWingX Logo" className="logo-icon1" />
+            </div>
+            <span className="logo-text">odewingx</span>
           </div>
           <div className="footer-credits">
-            <span>Copyright © CodeWingx | Designed by CodeWingx </span>
-           
+            <span>Copyright © CodeWingx | Designed by CodeWingx</span>
           </div>
         </div>
       </div>
