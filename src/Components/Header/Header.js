@@ -159,12 +159,10 @@ const Header = () => {
                     <div className="dropdown-content">
                       <div className="dropdown-section">
                         <h4 className="dropdown-section-title">Company</h4>
-                        <a href="/about/company" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>About Company</a>
-                        <a href="/about/mission" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Mission</a>
-                        <a href="/about/leadership" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Leadership</a>
-                        <a href="/about/team" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Our Team</a>
-                        <a href="/about/portfolio" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Portfolio</a>
-                        <a href="/about/client-reviews" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Client Reviews</a>
+                        <a href="/about" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>About Company</a>
+                        <a href="/about" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Mission</a>
+                        <a href="/ourteam" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Our Team</a>
+                        <a href="/clientreviews" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Client Reviews</a>
                         <a href="/about/partners" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Partners</a>
                         <a href="/about/locations" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Locations</a>
                       </div>
@@ -172,9 +170,7 @@ const Header = () => {
                       <div className="dropdown-section">
                         <h4 className="dropdown-section-title">Approach</h4>
                         <a href="/approach/getting-started" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Where to Start</a>
-                        <a href="/approach/pricing-models" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Pricing Models</a>
                         <a href="/approach/software-development" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Approach to Software Development</a>
-                        <a href="/approach/security-management" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Approach to Security Management</a>
                         <a href="/approach/technology-partnership" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Technology Partnership</a>
                         <a href="/approach/sustainability-policy" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Sustainability Policy</a>
                         <a href="/approach/faq" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>FAQ</a>
