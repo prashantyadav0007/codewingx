@@ -6,7 +6,7 @@ const OurTeam = () => {
     {
       id: 1,
       title: "Project management office",
-      description: "60+ project managers who oversee all aspects of a project and ensure that ScienceSoft delivers on all agreements with a client.",
+      description: "60+ project managers who oversee all aspects of a project and ensure that CodewingX delivers on all agreements with a client.",
       members: [
         { name: "Sarah Johnson", image: "https://images.unsplash.com/photo-1494790108755-2616b612b647?w=150&h=150&fit=crop&crop=face" },
         { name: "Mike Chen", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" },
@@ -77,8 +77,8 @@ const OurTeam = () => {
     <div className="our-team">
       <div className="container">
         <header className="team-header">
-          <h1>Meet ScienceSoft's Employees – the People Who Will Drive Your Project to Success</h1>
-          <p>We want to devote this page to the main driving force behind ScienceSoft — our people — and talk about a cross-functional team ScienceSoft has built.</p>
+          <h1>Meet CodewingX's Employees – the People Who Will Drive Your Project to Success</h1>
+          <p>We want to devote this page to the main driving force behind CodewingX — our people — and talk about a cross-functional team CodewingX has built.</p>
         </header>
 
         <div className="content-wrapper">

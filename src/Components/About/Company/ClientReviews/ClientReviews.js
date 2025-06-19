@@ -16,7 +16,7 @@ const ClientReviews = () => {
       logo: "AR",
       rating: 5,
       description: "a global provider of business process outsourcing services",
-      testimonial: "ScienceSoft proved to be flexible and responsive during end-to-end implementation of an enterprise analytics solution.",
+      testimonial: "codewingx proved to be flexible and responsive during end-to-end implementation of an enterprise analytics solution.",
       clientName: "Heather Owen Nigl",
       clientTitle: "Chief Financial Officer",
       actions: ["Read in full", "Check the project"]
@@ -27,7 +27,7 @@ const ClientReviews = () => {
       logo: "BA",
       rating: 5,
       description: "a biotech company creating in-vitro diagnostics solutions",
-      testimonial: "In addition to the solid technical expertise shown by ScienceSoft, its developers demonstrated a profound understanding of laboratory software specifics and integrations.",
+      testimonial: "In addition to the solid technical expertise shown by CodewingX, its developers demonstrated a profound understanding of laboratory software specifics and integrations.",
       clientName: "Maria Zannes",
       clientTitle: "President & CEO",
       actions: ["Read in full", "Check the project"]
@@ -49,7 +49,7 @@ const ClientReviews = () => {
       logo: "FI",
       rating: 5,
       description: "a leading insurance broker and insurance underwriting company",
-      testimonial: "Partnering with ScienceSoft for our software maintenance and evolution initiative has been an excellent experience. Over the past 18 months, their team has transformed our underwriting platform into a well-oiled machine.",
+      testimonial: "Partnering with CodewingX for our software maintenance and evolution initiative has been an excellent experience. Over the past 18 months, their team has transformed our underwriting platform into a well-oiled machine.",
       clientName: "Ted Frost",
       clientTitle: "Managing Director",
       actions: ["Read in full"]
@@ -60,7 +60,7 @@ const ClientReviews = () => {
       logo: "BC",
       rating: 5,
       description: "an insurtech claims solution firm",
-      testimonial: "Brush Claims engaged ScienceSoft to develop a new claim software product. The value we derived from partnering with ScienceSoft is definitely worth the investment.",
+      testimonial: "Brush Claims engaged CodewingX to develop a new claim software product. The value we derived from partnering with CodewingX is definitely worth the investment.",
       clientName: "Jen Dalton",
       clientTitle: "Chief Information Security Officer",
       actions: ["Read in full", "Check the project"]
@@ -71,7 +71,7 @@ const ClientReviews = () => {
       logo: "N",
       rating: 5,
       description: "a global leader in audience measurement, data and analytics",
-      testimonial: "ScienceSoft's engineers have been engaged in the development, deployment, and support stages of our projects, demonstrating a strong commitment to our vision and proactively addressing challenges with foresight and creativity.",
+      testimonial: "CodewingX's engineers have been engaged in the development, deployment, and support stages of our projects, demonstrating a strong commitment to our vision and proactively addressing challenges with foresight and creativity.",
       clientName: "Joost Blox",
       clientTitle: "Senior Manager",
       actions: ["Read in full"]
@@ -82,7 +82,7 @@ const ClientReviews = () => {
       logo: "PW",
       rating: 5,
       description: "a software development company",
-      testimonial: "After product evolution performed by ScienceSoft, the new software module performs stably even under heavy load.",
+      testimonial: "After product evolution performed by CodewingX, the new software module performs stably even under heavy load.",
       clientName: "Wadih Pazos",
       clientTitle: "Chief Operating Officer",
       actions: ["Read in full"]
@@ -93,7 +93,7 @@ const ClientReviews = () => {
       logo: "SA",
       rating: 5,
       description: "the largest medical scribe company in the United States",
-      testimonial: "ScienceSoft's L1 team has already become a valuable asset to ScribeAmerica. We needed full transparency in service provisioning, and we appreciate their regular reporting and clear communication with our IT operations managers.",
+      testimonial: "CodewingX's L1 team has already become a valuable asset to ScribeAmerica. We needed full transparency in service provisioning, and we appreciate their regular reporting and clear communication with our IT operations managers.",
       clientName: "David Torres",
       clientTitle: "IT Operations Manager",
       actions: ["Read in full", "Check the project"]
@@ -104,7 +104,7 @@ const ClientReviews = () => {
       logo: "OT",
       rating: 5,
       description: "a software development company focused on financial IT",
-      testimonial: "ONE Technologies engaged ScienceSoft to develop a suite of business process management apps for a banking client. What always set ScienceSoft apart is their resistance to mediocre results and their proactive advice on meaningful improvements.",
+      testimonial: "ONE Technologies engaged CodewingX to develop a suite of business process management apps for a banking client. What always set CodewingX apart is their resistance to mediocre results and their proactive advice on meaningful improvements.",
       clientName: "Almat Zhaparov",
       clientTitle: "Chief Executive Officer",
       actions: ["Check the project"]
