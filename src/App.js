@@ -12,6 +12,8 @@ import Features from './Components/Features/Features';
 import Aboutcompany from './Components/About/Company/Aboutcompany/Aboutcompany';
 import OurTeam from './Components/About/Company/OurTeam/OurTeam';
 import ClientReviews from './Components/About/Company/ClientReviews/ClientReviews';
+import WhereStart from './Components/About/Approach/WhereStart/WhereStart';
+import Hero from './Components/Hero/Hero'
 
 const App = () => {
   return (
@@ -24,6 +26,11 @@ const App = () => {
         <Route path="/aboutcompany" element={<Aboutcompany />} />
         <Route path="/ourteam" element={<OurTeam />} />
         <Route path="/clientreviews" element={<ClientReviews />} />
+        <Route path="/wherestart" element={<WhereStart />} />
+        <Route path="/hero" element={<Hero />} />
+
+
+
         <Route path="*" element={<div>Page not found</div>} />
       </Routes>
     </Router>

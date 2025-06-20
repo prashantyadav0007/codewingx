@@ -1,9 +1,12 @@
 import React from 'react';
 import './About.css'; // Import the CSS file
+// import Header from '../Header/Header';
 
 const About = () => {
   return (
+    
     <div className="about-container">
+      {/* <Header /> */}
       {/* Decorative Background Elements */}
       <div className="background-decorations">
         <div className="bg-decoration bg-decoration-1"></div>
