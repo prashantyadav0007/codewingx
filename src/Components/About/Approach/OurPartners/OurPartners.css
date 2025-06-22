@@ -1,0 +1,280 @@
+.partners-container {
+  background: linear-gradient(135deg, #0f0f23 0%, #1e1b4b 25%, #581c87 50%, #1e1b4b 100%);
+  min-height: 100vh;
+  padding: 60px 20px;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.partners-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.partners-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.partners-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #e2e8f0;
+  margin-bottom: 3rem;
+  max-width: 100%;
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.partner-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.partner-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px);
+}
+
+.partner-logo {
+  margin-bottom: 1.5rem;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+/* Microsoft Logo */
+.microsoft-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ms-squares {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  width: 24px;
+  height: 24px;
+}
+
+.ms-square {
+  width: 10px;
+  height: 10px;
+}
+
+.ms-square.red { background-color: #f25022; }
+.ms-square.green { background-color: #7fba00; }
+.ms-square.blue { background-color: #00a4ef; }
+.ms-square.yellow { background-color: #ffb900; }
+
+.ms-text .ms-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.ms-text .ms-subtitle {
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+/* AWS Logo */
+.aws-badge {
+  background: white;
+  color: #232f3e;
+  padding: 8px 16px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.aws-text {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #ff9900;
+}
+
+.aws-partner-text {
+  font-size: 0.7rem;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.aws-small {
+  font-size: 0.6rem;
+  font-weight: normal;
+}
+
+/* Oracle Logo */
+.oracle-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ff0000;
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+.oracle-partner {
+  color: #666;
+  font-size: 1.2rem;
+}
+
+/* ServiceNow Logo */
+.servicenow-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.servicenow-text {
+  color: #ffffff;
+}
+
+.servicenow-now {
+  color: #62d84e;
+}
+
+/* Adobe Logo */
+.adobe-logo {
+  color: #ff0000;
+  font-size: 2rem;
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* Ispirer Logo */
+.ispirer-logo {
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.partner-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #e2e8f0;
+  margin-bottom: 1.5rem;
+}
+
+.highlight {
+  color: #a855f7;
+  text-decoration: underline;
+}
+
+.partner-link {
+  color: #a855f7;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.partner-link:hover {
+  color: #c084fc;
+}
+
+.share-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.share-text {
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.share-icons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.share-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.share-icon.facebook {
+  background-color: #1877f2;
+}
+
+.share-icon.twitter {
+  background-color: #1da1f2;
+}
+
+.share-icon.linkedin {
+  background-color: #0077b5;
+}
+
+.share-icon:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .partners-container {
+    padding: 40px 15px;
+  }
+  
+  .partners-title {
+    font-size: 2rem;
+  }
+  
+  .partners-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .partner-card {
+    padding: 1.5rem;
+  }
+  
+  .share-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .partners-title {
+    font-size: 1.8rem;
+  }
+  
+  .partner-card {
+    padding: 1rem;
+  }
+  
+  .microsoft-logo,
+  .aws-badge,
+  .oracle-logo,
+  .servicenow-logo,
+  .adobe-logo,
+  .ispirer-logo {
+    font-size: 1.2rem;
+  }
+}

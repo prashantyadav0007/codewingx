@@ -14,6 +14,7 @@ import ClientReviews from './Components/About/Company/ClientReviews/ClientReview
 import WhereStart from './Components/About/Approach/WhereStart/WhereStart';
 import Hero from './Components/Hero/Hero';
 import ApproachtoSD from './Components/About/Approach/ApproachtoSD/ApproachtoSD';
+import OurPartners from './Components/About/Approach/OurPartners/OurPartners';
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
         <Route path="/hero" element={<Hero />} />
                 <Route path="/Approachtosd" element={<ApproachtoSD />} />
 
+                <Route path="/ourpartners" element={<OurPartners />} />
 
 
 

@@ -161,7 +161,6 @@ const Header = () => {
                       <a href="/about" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Mission</a>
                       <a href="/ourteam" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Our Team</a>
                       <a href="/clientreviews" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Client Reviews</a>
-                      <a href="/about/partners" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Partners</a>
                       <a href="/about/locations" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Locations</a>
                     </div>
                     
@@ -169,23 +168,22 @@ const Header = () => {
                       <h4 className="dropdown-section-title">Approach</h4>
                       <a href="/wherestart" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Where to Start</a>
                       <a href="/Approachtosd" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Approach to Software Development</a>
-                      <a href="/approach/technology-partnership" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Technology Partnership</a>
+                      <a href="/ourpartners" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Our Partnership</a>
                       <a href="/approach/sustainability-policy" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Sustainability Policy</a>
-                      <a href="/approach/faq" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>FAQ</a>
                     </div>
                     
-                    <div className="dropdown-section">
+                    {/* <div className="dropdown-section">
                       <h4 className="dropdown-section-title">Recognition</h4>
                       <a href="/recognition/testimonials" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Testimonials</a>
                       <a href="/recognition/awards" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Awards</a>
-                    </div>
+                    </div> */}
                     
-                    <div className="dropdown-section">
+                    {/* <div className="dropdown-section">
                       <h4 className="dropdown-section-title">Join Us</h4>
                       <a href="/careers" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Careers</a>
                       <a href="/careers/become-agent" className="dropdown-link" onClick={() => setIsMobileAboutDropdownOpen(false)}>Become Our Agent</a>
                       <a href="/careers/referral-program" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Referral Program</a>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
