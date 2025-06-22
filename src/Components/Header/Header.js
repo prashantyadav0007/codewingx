@@ -168,7 +168,7 @@ const Header = () => {
                     <div className="dropdown-section">
                       <h4 className="dropdown-section-title">Approach</h4>
                       <a href="/wherestart" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Where to Start</a>
-                      <a href="/approach/software-development" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Approach to Software Development</a>
+                      <a href="/Approachtosd" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Approach to Software Development</a>
                       <a href="/approach/technology-partnership" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Technology Partnership</a>
                       <a href="/approach/sustainability-policy" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Sustainability Policy</a>
                       <a href="/approach/faq" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>FAQ</a>
@@ -381,12 +381,10 @@ const Header = () => {
                 <div className="mobile-dropdown-content">
                   <div className="mobile-dropdown-section">
                     <h4 className="mobile-dropdown-section-title">Company</h4>
-                    <a href="/aboutcompany" className="mobile-dropdown-link" onClick={closeMobileMenu}>About Company</a>
-                    <a href="/about/mission" className="mobile-dropdown-link" onClick={closeMobileMenu}>Mission</a>
-                    <a href="/about/leadership" className="mobile-dropdown-link" onClick={closeMobileMenu}>Leadership</a>
-                    <a href="/about/team" className="mobile-dropdown-link" onClick={closeMobileMenu}>Our Team</a>
-                    <a href="/about/portfolio" className="mobile-dropdown-link" onClick={closeMobileMenu}>Portfolio</a>
-                    <a href="/about/client-reviews" className="mobile-dropdown-link" onClick={closeMobileMenu}>Client Reviews</a>
+                    <a href="/about" className="mobile-dropdown-link" onClick={closeMobileMenu}>About Company</a>
+                    <a href="/about" className="mobile-dropdown-link" onClick={closeMobileMenu}>Mission</a>
+                    <a href="/ourteam" className="mobile-dropdown-link" onClick={closeMobileMenu}>Our Team</a>
+                    <a href="/clientreviews" className="mobile-dropdown-link" onClick={closeMobileMenu}>Client Reviews</a>
                     <a href="/about/partners" className="mobile-dropdown-link" onClick={closeMobileMenu}>Partners</a>
                     <a href="/about/locations" className="mobile-dropdown-link" onClick={closeMobileMenu}>Locations</a>
                   </div>
