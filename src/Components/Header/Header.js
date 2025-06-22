@@ -205,8 +205,8 @@ const Header = () => {
                   <div className="dropdown-content">
                     <div className="dropdown-section">
                       <h4 className="dropdown-section-title">Development</h4>
-                      <a href="/services/software-development" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>Software Development</a>
-                      <a href="/services/web-development" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>Web Development</a>
+                      <a href="/softwaredev" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>Software Development</a>
+                      <a href="/webdev" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>Web Development</a>
                       <a href="/services/mobile-app-development" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>Mobile App Development</a>
                       <a href="/services/ux-design" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>UX Design</a>
                       <a href="/services/ui-design" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>UI Design</a>
@@ -431,8 +431,8 @@ const Header = () => {
                 <div className="mobile-dropdown-content">
                   <div className="mobile-dropdown-section">
                     <h4 className="mobile-dropdown-section-title">Development</h4>
-                    <a href="/services/software-development" className="mobile-dropdown-link" onClick={closeMobileMenu}>Software Development</a>
-                    <a href="/services/web-development" className="mobile-dropdown-link" onClick={closeMobileMenu}>Web Development</a>
+                    <a href="/softwaredev" className="mobile-dropdown-link" onClick={closeMobileMenu}>Software Development</a>
+                    <a href="/webdev" className="mobile-dropdown-link" onClick={closeMobileMenu}>Web Development</a>
                     <a href="/services/mobile-app-development" className="mobile-dropdown-link" onClick={closeMobileMenu}>Mobile App Development</a>
                     <a href="/services/ux-design" className="mobile-dropdown-link" onClick={closeMobileMenu}>UX Design</a>
                     <a href="/services/ui-design" className="mobile-dropdown-link" onClick={closeMobileMenu}>UI Design</a>

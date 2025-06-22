@@ -15,6 +15,8 @@ import WhereStart from './Components/About/Approach/WhereStart/WhereStart';
 import Hero from './Components/Hero/Hero';
 import ApproachtoSD from './Components/About/Approach/ApproachtoSD/ApproachtoSD';
 import OurPartners from './Components/About/Approach/OurPartners/OurPartners';
+import SoftwareDev from './Components/Services/Development/SoftwareDev/SoftwareDev';
+import WebDev from './Components/Services/Development/WebDev/WebDev';
 
 const App = () => {
   return (
@@ -28,12 +30,10 @@ const App = () => {
         <Route path="/clientreviews" element={<ClientReviews />} />
         <Route path="/wherestart" element={<WhereStart />} />
         <Route path="/hero" element={<Hero />} />
-                <Route path="/Approachtosd" element={<ApproachtoSD />} />
-
-                <Route path="/ourpartners" element={<OurPartners />} />
-
-
-
+        <Route path="/Approachtosd" element={<ApproachtoSD />} />
+        <Route path="/ourpartners" element={<OurPartners />} />
+        <Route path="/softwaredev" element={<SoftwareDev/>} />
+        <Route path="/webdev" element={<WebDev/>} />
         <Route path="*" element={<div>Page not found</div>} />
       </Routes>
     </Router>

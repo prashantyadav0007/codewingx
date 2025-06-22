@@ -1,0 +1,716 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.wd-web-container {
+  background: linear-gradient(135deg, 
+    #0f0f23 0%, 
+    #1e1b4b 25%, 
+    #581c87 50%, 
+    #1e1b4b 100%);
+  min-height: 100vh;
+}
+
+.wd-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Section */
+.wd-hero-section {
+  padding: 80px 0;
+  color: white;
+}
+
+.wd-hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.wd-hero-text h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.wd-hero-subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.wd-hero-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  opacity: 0.8;
+}
+
+.wd-hero-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.wd-btn-primary {
+  background: #fbbf24;
+  color: #1f2937;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.wd-btn-primary:hover {
+  background: #f59e0b;
+  transform: translateY(-2px);
+}
+
+.wd-btn-secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.wd-btn-secondary:hover {
+  background: white;
+  color: #1f2937;
+}
+
+.wd-hero-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wd-mockup-container {
+  position: relative;
+  width: 400px;
+  height: 300px;
+}
+
+.wd-mockup-device {
+  width: 300px;
+  height: 200px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+
+.wd-mockup-screen {
+  width: 280px;
+  height: 180px;
+  background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.wd-mockup-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wd-chart-element {
+  width: 60px;
+  height: 60px;
+  background: #fbbf24;
+  border-radius: 50%;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.wd-person-element {
+  width: 80px;
+  height: 80px;
+  background: #ef4444;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+/* Solutions Section */
+.wd-solutions-section {
+  background: white;
+  padding: 80px 0;
+}
+
+.wd-solutions-section h2 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1f2937;
+}
+
+.wd-section-description {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
+  font-size: 1.1rem;
+  color: #6b7280;
+}
+
+.wd-solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.wd-solution-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.wd-solution-card:hover {
+  transform: translateY(-5px);
+}
+
+.wd-solution-icon {
+  margin-bottom: 20px;
+}
+
+.wd-icon-placeholder {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.wd-web-portal {
+  background: #3b82f6;
+}
+
+.wd-websites {
+  background: #10b981;
+}
+
+.wd-ecommerce {
+  background: #f59e0b;
+}
+
+.wd-web-apps {
+  background: #8b5cf6;
+}
+
+.wd-solution-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #1f2937;
+}
+
+.wd-solution-card p {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.wd-cta-banner {
+  text-align: center;
+  background: #f3f4f6;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 40px;
+}
+
+.wd-highlight {
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+/* Stats Section */
+.wd-stats-section {
+  background: #f8fafc;
+  padding: 80px 0;
+}
+
+.wd-stats-section h2 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1f2937;
+}
+
+.wd-stats-description {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
+  font-size: 1.1rem;
+  color: #6b7280;
+}
+
+.wd-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.wd-stat-card {
+  padding: 40px 30px;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.wd-stat-card.wd-purple {
+  background: linear-gradient(135deg, #8b5cf6, #6366f1);
+}
+
+.wd-stat-card.wd-blue {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+
+.wd-stat-card.wd-green {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.wd-stat-card.wd-orange {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.wd-stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.wd-stat-label {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.wd-team-images {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.wd-team-image-container {
+  display: flex;
+  gap: 20px;
+}
+
+.wd-team-member {
+  width: 200px;
+  height: 150px;
+  background: linear-gradient(135deg, #e5e7eb, #d1d5db);
+  border-radius: 10px;
+}
+
+/* Pricing Section */
+.wd-pricing-section {
+  background: white;
+  padding: 80px 0;
+}
+
+.wd-pricing-section h2 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1f2937;
+}
+
+.wd-pricing-description {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
+  font-size: 1.1rem;
+  color: #6b7280;
+}
+
+.wd-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.wd-pricing-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  border: 2px solid #f3f4f6;
+  transition: transform 0.3s ease;
+}
+
+.wd-pricing-card:hover {
+  transform: translateY(-5px);
+  border-color: #3b82f6;
+}
+
+.wd-pricing-card.wd-blog {
+  background: #3b82f6;
+  color: white;
+}
+
+.wd-pricing-icon .wd-icon-placeholder.wd-pricing {
+  background: #6b7280;
+}
+
+.wd-price-range {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 20px 0;
+  color: #1f2937;
+}
+
+.wd-pricing-card.wd-blog .wd-price-range {
+  color: white;
+}
+
+.wd-pricing-cta {
+  background: #3b82f6;
+  border-radius: 15px;
+  padding: 40px;
+  text-align: center;
+  color: white;
+  margin-top: 40px;
+}
+
+.wd-pricing-cta h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.wd-pricing-cta p {
+  margin-bottom: 25px;
+  opacity: 0.9;
+}
+
+.wd-btn-calculate {
+  background: #fbbf24;
+  color: #1f2937;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.wd-btn-calculate:hover {
+  background: #f59e0b;
+  transform: translateY(-2px);
+}
+
+/* Services Section */
+.wd-services-section {
+  background: #f8fafc;
+  padding: 80px 0;
+}
+
+.wd-services-section h2 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1f2937;
+}
+
+.wd-services-description {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
+  font-size: 1.1rem;
+  color: #6b7280;
+}
+
+.wd-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.wd-service-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.wd-service-card:hover {
+  transform: translateY(-5px);
+}
+
+.wd-service-icon {
+  margin-bottom: 20px;
+}
+
+.wd-icon-placeholder.wd-analysis {
+  background: #ef4444;
+}
+
+.wd-icon-placeholder.wd-design {
+  background: #8b5cf6;
+}
+
+.wd-icon-placeholder.wd-architecture {
+  background: #3b82f6;
+}
+
+.wd-icon-placeholder.wd-frontend {
+  background: #10b981;
+}
+
+.wd-icon-placeholder.wd-backend {
+  background: #f59e0b;
+}
+
+.wd-icon-placeholder.wd-integration {
+  background: #6366f1;
+}
+
+.wd-icon-placeholder.wd-testing {
+  background: #ec4899;
+}
+
+.wd-icon-placeholder.wd-helpdesk {
+  background: #14b8a6;
+}
+
+.wd-icon-placeholder.wd-support {
+  background: #f97316;
+}
+
+.wd-service-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #1f2937;
+}
+
+.wd-service-card p {
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.wd-service-link {
+  color: #3b82f6;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Process Section */
+.wd-process-section {
+  background: white;
+  padding: 80px 0;
+}
+
+.wd-process-section h2 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1f2937;
+}
+
+.wd-process-description {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
+  font-size: 1.1rem;
+  color: #6b7280;
+}
+
+.wd-process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.wd-process-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  border: 2px solid #f3f4f6;
+  transition: transform 0.3s ease;
+}
+
+.wd-process-card:hover {
+  transform: translateY(-5px);
+  border-color: #3b82f6;
+}
+
+.wd-process-icon {
+  margin-bottom: 20px;
+}
+
+.wd-icon-placeholder.wd-scoping {
+  background: #3b82f6;
+}
+
+.wd-icon-placeholder.wd-cost-estimation {
+  background: #10b981;
+}
+
+.wd-icon-placeholder.wd-quality {
+  background: #f59e0b;
+}
+
+.wd-icon-placeholder.wd-collaboration {
+  background: #8b5cf6;
+}
+
+.wd-icon-placeholder.wd-security {
+  background: #ef4444;
+}
+
+.wd-icon-placeholder.wd-knowledge {
+  background: #6366f1;
+}
+
+.wd-icon-placeholder.wd-budget {
+  background: #14b8a6;
+}
+
+.wd-icon-placeholder.wd-timeline {
+  background: #f97316;
+}
+
+.wd-process-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #1f2937;
+}
+
+.wd-process-card p {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .wd-hero-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .wd-hero-text h1 {
+    font-size: 2rem;
+  }
+  
+  .wd-hero-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .wd-mockup-container {
+    width: 300px;
+    height: 250px;
+  }
+  
+  .wd-mockup-device {
+    width: 250px;
+    height: 160px;
+    left: 25px;
+  }
+  
+  .wd-mockup-screen {
+    width: 230px;
+    height: 140px;
+  }
+  
+  .wd-solutions-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .wd-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .wd-pricing-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .wd-services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .wd-process-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .wd-team-image-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .wd-pricing-cta {
+    padding: 30px 20px;
+  }
+  
+  .wd-container {
+    padding: 0 15px;
+  }
+  
+  section {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .wd-hero-text h1 {
+    font-size: 1.8rem;
+  }
+  
+  .wd-stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .wd-stat-card {
+    padding: 30px 20px;
+  }
+  
+  .wd-stat-number {
+    font-size: 2rem;
+  }
+  
+  .wd-team-member {
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .wd-btn-primary,
+  .wd-btn-secondary {
+    width: 100%;
+    max-width: 200px;
+  }
+}
