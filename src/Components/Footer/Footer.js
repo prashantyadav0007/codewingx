@@ -1,8 +1,14 @@
-import React from 'react';
-import { Facebook, Twitter, Instagram, Linkedin, Youtube, MessageCircle, Mail, ArrowRight, Sparkles } from 'lucide-react';
+import React, { useState } from 'react';
+import { Facebook, Twitter, Instagram, Linkedin, Youtube, MessageCircle, Sparkles, ChevronDown, ChevronUp } from 'lucide-react';
 import './Footer.css';
 
 const Footer = () => {
+  const [openDropdown, setOpenDropdown] = useState(null);
+
+  const toggleDropdown = (section) => {
+    setOpenDropdown(openDropdown === section ? null : section);
+  };
+
   return (
     <footer className="footer">
       {/* Decorative background elements */}
@@ -18,67 +24,50 @@ const Footer = () => {
         <div className="footer-content">
           {/* Pages Section */}
           <div className="footer-section">
-            <h3 className="footer-title">
+            <h3 
+              className="footer-title dropdown-toggle" 
+              onClick={() => toggleDropdown('discover')}
+            >
               <Sparkles className="title-icon" />
-              Pages
+              DISCOVER
+              <div className="dropdown-icon">
+                {openDropdown === 'discover' ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+              </div>
             </h3>
-            <ul className="footer-links">
-              <li><a href="/sales-home">Sales Home</a></li>
-              <li><a href="/primary-home">Primary Home</a></li>
-              <li><a href="/about">About</a></li>
-              <li><a href="/contact">Contact</a></li>
+            <ul className={`footer-links ${openDropdown === 'discover' ? 'open' : ''}`}>
+              <li><a href="/about">About Us</a></li>
+              <li><a href="/contactform">Contact Us</a></li>
+              <li><a href="/about">Services</a></li>
               <li><a href="/blog">Blog</a></li>
-              <li>
-                <a href="/blog-post">Blog Post</a>
-                <span className="cms-badge">CMS</span>
-              </li>
-              <li><a href="/pricing">Pricing</a></li>
-              <li>
-                <a href="/pricing-single">Pricing Single</a>
-                <span className="cms-badge">CMS</span>
-              </li>
             </ul>
           </div>
 
           {/* Utility Pages Section */}
           <div className="footer-section">
-            <h3 className="footer-title">
+            <h3 
+              className="footer-title dropdown-toggle" 
+              onClick={() => toggleDropdown('policies')}
+            >
               <Sparkles className="title-icon" />
-              Utility Pages
+              POLICIES
+              <div className="dropdown-icon">
+                {openDropdown === 'policies' ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+              </div>
             </h3>
-            <ul className="footer-links">
-              <li><a href="/start-here">Start Here</a></li>
-              <li><a href="/style-guide">Style Guide</a></li>
-              <li><a href="/password-protected">Password Protected</a></li>
-              <li><a href="/404">404 Not Found</a></li>
-              <li><a href="/licenses">Licenses</a></li>
-              <li><a href="/changelog">Changelog</a></li>
-              <li><a href="/more-templates" className="more-templates">More Templates</a></li>
+            <ul className={`footer-links ${openDropdown === 'policies' ? 'open' : ''}`}>
+              <li><a href="/404">FAQs</a></li>
+              <li><a href="/licenses">Terms & Conditions</a></li>
+              <li><a href="/404">Privacy Policy</a></li>
             </ul>
           </div>
 
           {/* Newsletter Section */}
           <div className="footer-section newsletter-section">
             <h3 className="footer-title">
-              <Mail className="title-icon" />
-              Subscribe to our newsletter
+              <Sparkles className="title-icon" />
+              Our Social Media
             </h3>
-            <p className="newsletter-description">
-              Lorem ipsum dolor sit amet consectetur adipiscing elit non amet arcu auctor orci vitae
-            </p>
-            <div className="newsletter-form">
-              <div className="input-wrapper">
-                <input 
-                  type="email" 
-                  placeholder="Your email address" 
-                  className="email-input"
-                />
-                <button className="subscribe-btn">
-                  Subscribe
-                  <ArrowRight className="btn-icon" />
-                </button>
-              </div>
-            </div>
+            
             <div className="social-links">
               <a href="#" className="social-link facebook" title="Facebook">
                 <Facebook size={18} />

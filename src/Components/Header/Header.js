@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, ShoppingCart } from 'lucide-react';
 import './Header.css'; // Import the CSS file
+import { Link } from 'react-router-dom';
+
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -341,9 +343,9 @@ const Header = () => {
           {/* Right Section */}
           <div className="nav-actions">
             {!isMobile && (
-              <>
-                <button className="get-started-btn">Contact Us</button>
-              </>
+            <Link to="/contactform">
+  <button className="get-started-btn">Contact Us</button>
+</Link>
             )}
             
             {/* Mobile Menu Toggle */}
@@ -567,8 +569,9 @@ const Header = () => {
               <a href="#projects" className="mobile-nav-link" onClick={closeMobileMenu}>Projects</a>
 
               <div className="mobile-actions">
-                <button className="get-started-btn">Contact Us</button>
-              </div>
+<Link to="/contactform">
+  <button className="get-started-btn">Contact Us</button>
+</Link>              </div>
             </div>
           </div>
         </nav>

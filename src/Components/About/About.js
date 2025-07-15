@@ -269,7 +269,7 @@ const About = () => {
                 Let's transform your ideas into powerful digital solutions. 
                 Join the businesses that trust Code Wings to elevate their technology.
               </p>
-              <button className="cta-button" onClick={() => window.location.href = '/contact'}>
+              <button className="cta-button" onClick={() => window.location.href = '/contactform'}>
                 Start Your Project
               </button>
             </div>
