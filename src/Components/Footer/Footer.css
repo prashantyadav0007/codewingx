@@ -115,7 +115,6 @@
 
 .dropdown-toggle {
   cursor: pointer;
-  justify-content: space-between;
   transition: all 0.3s ease;
   padding: 8px 0;
   border-radius: 8px;
