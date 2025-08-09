@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { memo, useState, useCallback } from 'react';
 import { Monitor, Smartphone, Palette, TrendingUp } from 'lucide-react';
 import './Services.css';
 
-const Services = () => {
+const Services = memo(() => {
+  const [loadedImages, setLoadedImages] = useState(new Set());
+
+  const handleImageLoad = useCallback((serviceId) => {
+    setLoadedImages(prev => new Set(prev).add(serviceId));
+  }, []);
+
   const services = [
     {
       id: 1,
@@ -52,20 +58,15 @@ const Services = () => {
 
   return (
     <div className="services-container">
-      {/* Complex animated background with mixed colors */}
+      {/* Simplified background effects for better performance */}
       <div className="background-effects">
-        {/* Primary blobs */}
+        {/* Reduced to 3 primary blobs */}
         <div className="blob blob-1"></div>
         <div className="blob blob-2"></div>
         <div className="blob blob-3"></div>
         
-        {/* Secondary accent blobs */}
-        <div className="blob blob-4"></div>
-        <div className="blob blob-5"></div>
-        
-        {/* Geometric patterns */}
+        {/* Single geometric pattern */}
         <div className="geometric-pattern pattern-1"></div>
-        <div className="geometric-pattern pattern-2"></div>
       </div>
 
       {/* Overlay gradient for depth */}
@@ -83,24 +84,29 @@ const Services = () => {
           </p>
         </div>
 
-        {/* 2x2 Grid with mixed color themes */}
+        {/* 2x2 Grid with optimized rendering */}
         <div className="services-grid">
           {services.map((service, index) => {
             const IconComponent = service.icon;
+            const isImageLoaded = loadedImages.has(service.id);
+            
             return (
               <div
                 key={service.id}
                 className={`service-card ${service.bgPattern}`}
                 style={{
-                  animationDelay: `${index * 200}ms`,
+                  animationDelay: `${index * 100}ms`, // Reduced from 200ms
                 }}
               >
-                {/* Image Section */}
+                {/* Optimized Image Section */}
                 <div className="service-image-container">
                   <img 
                     src={service.imageUrl} 
                     alt={service.imageAlt}
-                    className="service-image"
+                    className={`service-image ${isImageLoaded ? 'loaded' : 'loading'}`}
+                    onLoad={() => handleImageLoad(service.id)}
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className={`image-overlay gradient-${service.id}`}></div>
                   
@@ -110,14 +116,13 @@ const Services = () => {
                   </div>
                 </div>
 
-                {/* Complex decorative background pattern */}
+                {/* Simplified decorative background pattern */}
                 <div className="decorative-bg">
                   <div className="decorative-circle circle-1"></div>
                   <div className="decorative-circle circle-2"></div>
-                  <div className="decorative-circle circle-3"></div>
                 </div>
 
-                {/* Animated border gradient */}
+                {/* Simplified animated border gradient */}
                 <div className={`animated-border border-${service.id}`}>
                   <div className="border-inner"></div>
                 </div>
@@ -135,12 +140,10 @@ const Services = () => {
                   {/* Multi-colored bottom accent */}
                   <div className={`bottom-accent accent-${service.id}`}></div>
 
-                  {/* Enhanced floating particles effect */}
+                  {/* Reduced floating particles effect */}
                   <div className="floating-particles">
                     <div className="particle particle-1"></div>
                     <div className="particle particle-2"></div>
-                    <div className="particle particle-3"></div>
-                    <div className="particle particle-4"></div>
                   </div>
 
                   {/* Enhanced Learn More Button */}
@@ -159,15 +162,11 @@ const Services = () => {
             );
           })}
         </div>
-
-       
-
-
-     
       </div>
     </div>
-  
   );
-};
+});
+
+Services.displayName = 'Services';
 
 export default Services;

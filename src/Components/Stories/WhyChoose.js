@@ -5,17 +5,17 @@ const WhyChoose = () => {
   return (
     <div className="why-choose-container">
       <div className="why-choose-header">
-        <h1>Why Businesses Choose ScienceSoft</h1>
+        <h1>Why Businesses Choose CodewingX</h1>
         
         <div className="stats-grid">
           <div className="stat-item">
             <span className="stat-bullet">■</span>
-            <span>Over 4,000 success stories.</span>
+            <span>Over 400 success stories.</span>
           </div>
           
           <div className="stat-item">
             <span className="stat-bullet">■</span>
-            <span>1,300+ satisfied clients.</span>
+            <span>50+ satisfied clients.</span>
           </div>
           
           <div className="stat-item">
@@ -40,7 +40,7 @@ const WhyChoose = () => {
           <div className="video-container">
             <div className="video-placeholder">
               <div className="video-content">
-                <div className="video-logo">ScienceSoft</div>
+                <div className="video-logo">CodewingX</div>
                 <h2 className="video-title">PICKING THE RIGHT<br/>IT PARTNER</h2>
                 <div className="play-button">
                   <svg width="60" height="60" viewBox="0 0 60 60">
@@ -49,7 +49,7 @@ const WhyChoose = () => {
                   </svg>
                 </div>
                 <div className="video-info">
-                  <span className="video-text">Why Companies Choose ScienceSoft as an IT Partner</span>
+                  <span className="video-text">Why Companies Choose CodewingX as an IT Partner</span>
                   <button className="copy-link-btn">Copy link</button>
                 </div>
               </div>
@@ -60,7 +60,7 @@ const WhyChoose = () => {
         <div className="trust-section">
           <h2>Building Trust with Transparency</h2>
           <p>
-            Outsourcing to another company, however reputable it is, always comes with a risk. The best we can do as a vendor to lower that risk is to be completely transparent about who we are, what we do, and where we have succeeded. At ScienceSoft, we bet on facts rather than promises — that's our first step to building trust.
+            Outsourcing to another company, however reputable it is, always comes with a risk. The best we can do as a vendor to lower that risk is to be completely transparent about who we are, what we do, and where we have succeeded. At CodewingX, we bet on facts rather than promises — that's our first step to building trust.
           </p>
         </div>
       </div>
@@ -68,10 +68,10 @@ const WhyChoose = () => {
       <div className="success-section">
         <div className="success-content">
           <div className="success-text">
-            <p className="success-label">What makes ScienceSoft different</p>
+            <p className="success-label">What makes CodewingX different</p>
             <h2 className="success-title">We achieve project success <span className="highlight">no matter what</span></h2>
             <p className="success-description">
-              ScienceSoft does not pass mere project administration off as project management, a practice that's unfortunately common in the market. We drive projects to their goals, mitigating risks and overcoming constraints.
+              CodewingX does not pass mere project administration off as project management, a practice that's unfortunately common in the market. We drive projects to their goals, mitigating risks and overcoming constraints.
             </p>
             <button className="cta-button">
               See how we deliver results →

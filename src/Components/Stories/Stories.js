@@ -76,101 +76,92 @@ const Stories = () => {
     setVisibleStories(prev => prev + 8);
   };
 
+  const timelineSteps = [
+    {
+      year: "2018",
+      step: "01",
+      title: "Pre Campaign",
+      description: "Select all the factors which is necessary for the growth of the management",
+      color: "#7dd3fc"
+    },
+    {
+      year: "2019", 
+      step: "02",
+      title: "Follow Through",
+      description: "All the factors which have select should be followed by workers. Determined working goals and after that select timeline and products.",
+      color: "#3b82f6"
+    },
+    {
+      year: "2020",
+      step: "03", 
+      title: "Feasibility Study",
+      description: "Select donors which maintain all the factors of the process. Step by step process gives you a perfect result at the end",
+      color: "#1e3a8a"
+    },
+    {
+      year: "2021",
+      step: "04",
+      title: "Solicits Gifts", 
+      description: "All the factors divided in steps at every end you have the single sample and gives you the low lost factor",
+      color: "#9ca3af"
+    },
+    {
+      year: "2022",
+      step: "05",
+      title: "Lower Growth Level",
+      description: "Before producing the large amount of the product create a sample which gives you the accurate result and loss amount is decrease.",
+      color: "#44c1efff"
+    }
+  ];
+
   return (
     <div className="stories-container">
-      <div className="stories-header">
-        <h1>Success Stories</h1>
-        
-        <div className="filter-section">
-          <span className="filter-label">Filter by:</span>
-          
-          <div className="filter-dropdown">
-            <button 
-              className={`filter-btn ${activeFilter.services ? 'active' : ''}`}
-              onClick={() => toggleFilter('services')}
-            >
-              Services <ChevronDown size={16} />
-            </button>
-            {activeFilter.services && (
-              <div className="dropdown-menu">
-                <div className="dropdown-item">Web Development</div>
-                <div className="dropdown-item">Mobile Development</div>
-                <div className="dropdown-item">Cloud Solutions</div>
+      {/* Success Story Timeline Section */}
+      <div className="timeline-section">
+        <div className="timeline-header">
+          <div className="timeline-title">
+            <span className="title-line"></span>
+            <h1>SUCCESS <span className="highlight">STORY</span></h1>
+          </div>
+        </div>
+
+        <div className="timeline-wrapper">
+          <div className="timeline-badges">
+            {timelineSteps.map((step, index) => (
+              <div key={index} className="timeline-badge" style={{ color: step.color }}>
+                <div className="badge-ribbon" style={{ backgroundColor: step.color }}>
+                  <span>{step.year}</span>
+                </div>
               </div>
-            )}
+            ))}
           </div>
 
-          <div className="filter-dropdown">
-            <button 
-              className={`filter-btn ${activeFilter.industries ? 'active' : ''}`}
-              onClick={() => toggleFilter('industries')}
-            >
-              Industries <ChevronDown size={16} />
-            </button>
-            {activeFilter.industries && (
-              <div className="dropdown-menu">
-                <div className="dropdown-item">Healthcare</div>
-                <div className="dropdown-item">Finance</div>
-                <div className="dropdown-item">Insurance</div>
-              </div>
-            )}
+          <div className="timeline-line">
+            {timelineSteps.map((step, index) => (
+              <div key={index} className="timeline-dot" style={{ backgroundColor: step.color }}></div>
+            ))}
           </div>
 
-          <div className="filter-dropdown">
-            <button 
-              className={`filter-btn ${activeFilter.solutions ? 'active' : ''}`}
-              onClick={() => toggleFilter('solutions')}
-            >
-              Solutions <ChevronDown size={16} />
-            </button>
-            {activeFilter.solutions && (
-              <div className="dropdown-menu">
-                <div className="dropdown-item">Custom Software</div>
-                <div className="dropdown-item">Automation</div>
-                <div className="dropdown-item">Analytics</div>
+          <div className="timeline-cards">
+            {timelineSteps.map((step, index) => (
+              <div key={index} className="timeline-card" style={{ backgroundColor: step.color }}>
+                <div className="card-arrow" style={{ borderBottomColor: step.color }}></div>
+                <div className="card-number" style={{ color: step.color }}>{step.step}</div>
+                <h3>{step.title}</h3>
+                <p>{step.description}</p>
               </div>
-            )}
+            ))}
           </div>
+        </div>
+
+        <div className="timeline-footer">
+          <div className="footer-brand">CodewingX</div>
+          <div className="footer-page">3</div>
+          <div className="footer-website">WWW.CodewingX.COM</div>
         </div>
       </div>
 
-      <div className="stories-grid">
-        {stories.slice(0, visibleStories).map((story) => (
-          <div key={story.id} className="story-card">
-            <div className="story-image">
-              <img src={story.image} alt={story.title} />
-            </div>
-            <div className="story-content">
-              <h3>{story.title}</h3>
-              <button className="project-details-btn">
-                Project details <ArrowRight size={16} />
-              </button>
-              {story.logo && (
-                <div className="story-logo">
-                  <span>{story.logo}</span>
-                </div>
-              )}
-            </div>
-          </div>
-        ))}
-      </div>
 
-      <div className="stories-footer">
-        <p className="stories-count">
-          You've viewed {Math.min(visibleStories, stories.length)} of {stories.length} success stories
-        </p>
-        
-        {visibleStories < stories.length && (
-          <button className="show-more-btn" onClick={showMoreStories}>
-            Show more success stories
-          </button>
-        )}
-        
-        <button className="filter-projects-btn">
-          <Filter size={16} />
-          Filter projects
-        </button>
-      </div>
     </div>
   );
 };
