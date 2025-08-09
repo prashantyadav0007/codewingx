@@ -71,8 +71,6 @@ const OurTeam = () => {
     }
   ];
 
-
-
   return (
     <div className="our-team">
       <div className="container">
@@ -106,8 +104,6 @@ const OurTeam = () => {
               ))}
             </div>
           </main>
-
-
         </div>
       </div>
     </div>
