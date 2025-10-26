@@ -1,0 +1,311 @@
+/* Founder.css */
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #0f0f23, #1e1b4b 25%, #581c87 50%, #1e1b4b);
+  --card-gradient: linear-gradient(135deg, #1e1b4b, #581c87 50%, #7c3aed);
+  --accent-gradient: linear-gradient(90deg, #ec4899, #8b5cf6, #06b6d4);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.founder-container {
+  min-height: 100vh;
+  background: var(--primary-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  font-family: 'Arial', sans-serif;
+}
+
+.founder-card {
+  max-width: 1200px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.founder-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--card-gradient);
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.founder-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.founder-image-section {
+  position: relative;
+}
+
+.founder-image {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.founder-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--accent-gradient);
+  opacity: 0.1;
+  z-index: 1;
+}
+
+.profile-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+
+.founder-image:hover .profile-image {
+  transform: scale(1.05);
+}
+
+.founder-info-section {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.founder-header {
+  margin-bottom: 1rem;
+}
+
+.founder-title {
+  font-size: 2.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.founder-description {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.quote-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--accent-gradient);
+  border-radius: 2px;
+}
+
+.description-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.company-description p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
+}
+
+.founder-details {
+  margin-top: 2rem;
+}
+
+.founder-name {
+  font-size: 2rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.5rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.founder-position {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.learn-more-btn {
+  background: var(--accent-gradient);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(236, 72, 153, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.learn-more-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.learn-more-btn:hover::before {
+  left: 100%;
+}
+
+.learn-more-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(236, 72, 153, 0.4);
+}
+
+.signature {
+  margin-top: 2rem;
+  opacity: 0.7;
+}
+
+.signature-svg {
+  width: 150px;
+  height: 60px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.signature-path {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: signature-draw 2s ease-out forwards;
+}
+
+@keyframes signature-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .founder-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .founder-title {
+    font-size: 2rem;
+  }
+  
+  .founder-card {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .founder-container {
+    padding: 1rem;
+  }
+  
+  .founder-card {
+    padding: 1.5rem;
+  }
+  
+  .founder-title {
+    font-size: 1.75rem;
+  }
+  
+  .founder-name {
+    font-size: 1.75rem;
+  }
+  
+  .description-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .founder-content {
+    gap: 2rem;
+  }
+  
+  .founder-title {
+    font-size: 1.5rem;
+  }
+  
+  .founder-name {
+    font-size: 1.5rem;
+  }
+  
+  .learn-more-btn {
+    padding: 0.875rem 2rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Animation for card entrance */
+.founder-card {
+  animation: cardSlideUp 0.8s ease-out;
+}
+
+@keyframes cardSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Gradient text animation */
+.founder-name {
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(30deg);
+  }
+}

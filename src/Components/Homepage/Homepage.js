@@ -9,6 +9,7 @@ import Stories from '../Stories/Stories';
 import WhyChoose from '../Stories/WhyChoose';
 import OurPatner from '../About/Approach/OurPartners/OurPartners';
 import OurTeam from '../About/Company/OurTeam/OurTeam';
+import Founder from '../Founder/Founder';
 const Homepage = () => {
   return (
     <div>
@@ -20,12 +21,11 @@ const Homepage = () => {
         <Services /> 
         <Solutions />
           <About />
-          <WhyChoose />
-          <Stories />
-          <OurPatner /> 
+          {/* <Founder /> */}
+          
 
           <OurTeam />
-  
+          <Founder />
       <Footer />
     </div>
   );

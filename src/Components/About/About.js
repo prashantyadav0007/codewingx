@@ -140,7 +140,7 @@ const About = () => {
           <div className="values-header">
             <div className="values-tag">What Drives Us</div>
             <h2 className="values-title">
-              Our <span className="gradient-text">Core Values</span>
+              Our <span className="gradient-text1">Core Values</span>
             </h2>
             <p className="values-description">
               The principles that guide every decision we make and every solution we create.
@@ -263,7 +263,7 @@ const About = () => {
           <div className="cta-container">
             <div className="cta-card">
               <h2 className="cta-title">
-                Ready to <span className="gradient-text">Soar Higher</span>?
+                Ready to <span className="gradient-text1">Soar Higher</span>?
               </h2>
               <p className="cta-text">
                 Let's transform your ideas into powerful digital solutions. 

@@ -56,6 +56,86 @@ const Services = memo(() => {
     }
   ];
 
+  // Split services into pairs for mobile view
+  const firstPair = services.slice(0, 2);  // Web Dev & Mobile Apps
+  const secondPair = services.slice(2, 4); // UI/UX & Digital Marketing
+
+  const renderServiceCard = (service, index) => {
+    const IconComponent = service.icon;
+    const isImageLoaded = loadedImages.has(service.id);
+    
+    return (
+      <div
+        key={service.id}
+        className={`service-card ${service.bgPattern}`}
+        style={{
+          animationDelay: `${index * 100}ms`,
+        }}
+      >
+        {/* Optimized Image Section */}
+        <div className="service-image-container">
+          <img 
+            src={service.imageUrl} 
+            alt={service.imageAlt}
+            className={`service-image ${isImageLoaded ? 'loaded' : 'loading'}`}
+            onLoad={() => handleImageLoad(service.id)}
+            loading="lazy"
+            decoding="async"
+          />
+          <div className={`image-overlay gradient-${service.id}`}></div>
+          
+          {/* Icon overlay on image */}
+          <div className={`service-icon-overlay icon-bg-${service.id}`}>
+            <IconComponent size={24} className="icon-white" />
+          </div>
+        </div>
+
+        {/* Simplified decorative background pattern */}
+        <div className="decorative-bg">
+          <div className="decorative-circle circle-1"></div>
+          <div className="decorative-circle circle-2"></div>
+        </div>
+
+        {/* Simplified animated border gradient */}
+        <div className={`animated-border border-${service.id}`}>
+          <div className="border-inner"></div>
+        </div>
+
+        {/* Content Section */}
+        <div className="service-content">
+          <h3 className="service-title">
+            {service.title}
+          </h3>
+
+          <p className="service-description">
+            {service.description}
+          </p>
+
+          {/* Multi-colored bottom accent */}
+          <div className={`bottom-accent accent-${service.id}`}></div>
+
+          {/* Reduced floating particles effect */}
+          <div className="floating-particles">
+            <div className="particle particle-1"></div>
+            <div className="particle particle-2"></div>
+          </div>
+
+          {/* Enhanced Learn More Button */}
+          <div className="button-container">
+            <button className={`learn-more-btn btn-${service.id}`}>
+              <span className="btn-text">Learn More</span>
+              <svg className="btn-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+              {/* Button shimmer effect */}
+              <div className="btn-shimmer"></div>
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className="services-container">
       {/* Simplified background effects for better performance */}
@@ -84,83 +164,25 @@ const Services = memo(() => {
           </p>
         </div>
 
-        {/* 2x2 Grid with optimized rendering */}
+        {/* Desktop Grid Layout */}
         <div className="services-grid">
-          {services.map((service, index) => {
-            const IconComponent = service.icon;
-            const isImageLoaded = loadedImages.has(service.id);
-            
-            return (
-              <div
-                key={service.id}
-                className={`service-card ${service.bgPattern}`}
-                style={{
-                  animationDelay: `${index * 100}ms`, // Reduced from 200ms
-                }}
-              >
-                {/* Optimized Image Section */}
-                <div className="service-image-container">
-                  <img 
-                    src={service.imageUrl} 
-                    alt={service.imageAlt}
-                    className={`service-image ${isImageLoaded ? 'loaded' : 'loading'}`}
-                    onLoad={() => handleImageLoad(service.id)}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div className={`image-overlay gradient-${service.id}`}></div>
-                  
-                  {/* Icon overlay on image */}
-                  <div className={`service-icon-overlay icon-bg-${service.id}`}>
-                    <IconComponent size={24} className="icon-white" />
-                  </div>
-                </div>
+          {services.map((service, index) => renderServiceCard(service, index))}
+        </div>
 
-                {/* Simplified decorative background pattern */}
-                <div className="decorative-bg">
-                  <div className="decorative-circle circle-1"></div>
-                  <div className="decorative-circle circle-2"></div>
-                </div>
+        {/* Mobile 2x2 Grid Layout with Separation */}
+        <div className="services-mobile-container">
+          {/* First Pair - Web Development & Mobile Apps */}
+          <div className="services-pair">
+            {firstPair.map((service, index) => renderServiceCard(service, index))}
+          </div>
 
-                {/* Simplified animated border gradient */}
-                <div className={`animated-border border-${service.id}`}>
-                  <div className="border-inner"></div>
-                </div>
+          {/* Separator between pairs */}
+          <div className="pair-separator"></div>
 
-                {/* Content Section */}
-                <div className="service-content">
-                  <h3 className="service-title">
-                    {service.title}
-                  </h3>
-
-                  <p className="service-description">
-                    {service.description}
-                  </p>
-
-                  {/* Multi-colored bottom accent */}
-                  <div className={`bottom-accent accent-${service.id}`}></div>
-
-                  {/* Reduced floating particles effect */}
-                  <div className="floating-particles">
-                    <div className="particle particle-1"></div>
-                    <div className="particle particle-2"></div>
-                  </div>
-
-                  {/* Enhanced Learn More Button */}
-                  <div className="button-container">
-                    <button className={`learn-more-btn btn-${service.id}`}>
-                      <span className="btn-text">Learn More</span>
-                      <svg className="btn-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                      {/* Button shimmer effect */}
-                      <div className="btn-shimmer"></div>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+          {/* Second Pair - UI/UX Design & Digital Marketing */}
+          <div className="services-pair">
+            {secondPair.map((service, index) => renderServiceCard(service, index + 2))}
+          </div>
         </div>
       </div>
     </div>
