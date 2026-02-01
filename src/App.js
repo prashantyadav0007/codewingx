@@ -21,6 +21,7 @@ import Solutions from './Components/Services/Solutions';
 import Stories from './Components/Stories/Stories';
 import WhyChoose from './Components/Stories/WhyChoose';
 import Founder from './Components/Founder/Founder';
+import Overview from './Components/Footer/Overview/Overview';
 // import SoftwareDev from './Components/Services/Development/SoftwareDev/SoftwareDev';
 // import WebDev from './Components/Services/Development/WebDev/WebDev';
 
@@ -41,7 +42,9 @@ const App = () => {
         <Route path="/stories" element={<Stories />} />
         <Route path="/whychoose" element={<WhyChoose />} />
         <Route path="/Approachtosd" element={<ApproachtoSD />} />
-                <Route path="/founder" element={<Founder />} />
+        <Route path="/founder" element={<Founder />} />
+        <Route path="/overview" element={<Overview />} />
+
 
         {/* <Route path="/ourpartners" element={<OurPartners />} /> */}
         {/* <Route path="/softwaredev" element={<SoftwareDev />} /> */}

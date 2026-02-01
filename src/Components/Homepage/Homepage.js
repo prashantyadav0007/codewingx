@@ -20,12 +20,13 @@ const Homepage = () => {
       
         <Services /> 
         <Solutions />
-          <About />
-          {/* <Founder /> */}
+       
+          
           
 
           <OurTeam />
-          <Founder />
+          <About />
+          {/* <Founder /> */}
       <Footer />
     </div>
   );

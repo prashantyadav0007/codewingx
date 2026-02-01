@@ -257,7 +257,7 @@ const Header = () => {
                 </div>
               </div>
               
-              <a href="#projects" className="nav-link cart-link">Projects</a>
+             <Link to="/projects" className="nav-link cart-link">Projects</Link>
             </div>
           )}
 

@@ -53,12 +53,35 @@ const Services = memo(() => {
       iconBg: "from-blue-600 via-pink-500 to-purple-600",
       imageUrl: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=400&h=250&fit=crop&crop=center",
       imageAlt: "Digital marketing analytics and social media strategy"
+    },
+    {
+      id: 5,
+      title: "Cloud Solutions",
+      description: "Leverage the power of cloud computing with our scalable infrastructure solutions. We provide secure, reliable cloud services that grow with your business needs and ensure maximum uptime.",
+      icon: Monitor,
+      gradient: "from-purple-500 via-blue-400 to-pink-500",
+      bgPattern: "bg-gradient-to-br from-purple-500/15 via-blue-500/15 to-pink-500/15",
+      iconBg: "from-purple-600 via-blue-500 to-purple-700",
+      imageUrl: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=250&fit=crop&crop=center",
+      imageAlt: "Cloud computing and network infrastructure"
+    },
+    {
+      id: 6,
+      title: "Data Analytics",
+      description: "Transform raw data into actionable insights. Our analytics solutions help you make data-driven decisions, identify trends, and optimize your business performance with advanced visualization tools.",
+      icon: TrendingUp,
+      gradient: "from-pink-500 via-purple-400 to-blue-600",
+      bgPattern: "bg-gradient-to-br from-pink-500/15 via-purple-500/15 to-blue-500/15",
+      iconBg: "from-pink-600 via-purple-500 to-blue-600",
+      imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop&crop=center",
+      imageAlt: "Data analytics dashboard and business intelligence"
     }
   ];
 
-  // Split services into pairs for mobile view
-  const firstPair = services.slice(0, 2);  // Web Dev & Mobile Apps
-  const secondPair = services.slice(2, 4); // UI/UX & Digital Marketing
+  // Split services into three pairs for mobile view (2-2-2 layout)
+  const firstPair = services.slice(0, 2);    // Web Dev & Mobile Apps
+  const secondPair = services.slice(2, 4);   // UI/UX & Digital Marketing
+  const thirdPair = services.slice(4, 6);    // Cloud Solutions & Data Analytics
 
   const renderServiceCard = (service, index) => {
     const IconComponent = service.icon;
@@ -68,9 +91,6 @@ const Services = memo(() => {
       <div
         key={service.id}
         className={`service-card ${service.bgPattern}`}
-        style={{
-          animationDelay: `${index * 100}ms`,
-        }}
       >
         {/* Optimized Image Section */}
         <div className="service-image-container">
@@ -138,20 +158,6 @@ const Services = memo(() => {
 
   return (
     <div className="services-container">
-      {/* Simplified background effects for better performance */}
-      <div className="background-effects">
-        {/* Reduced to 3 primary blobs */}
-        <div className="blob blob-1"></div>
-        <div className="blob blob-2"></div>
-        <div className="blob blob-3"></div>
-        
-        {/* Single geometric pattern */}
-        <div className="geometric-pattern pattern-1"></div>
-      </div>
-
-      {/* Overlay gradient for depth */}
-      <div className="overlay-gradient"></div>
-
       <div className="services-content">
         <div className="services-header">
           <h2 className="main-title">Our Core Services</h2>
@@ -169,7 +175,7 @@ const Services = memo(() => {
           {services.map((service, index) => renderServiceCard(service, index))}
         </div>
 
-        {/* Mobile 2x2 Grid Layout with Separation */}
+        {/* Mobile 2x2x2 Grid Layout with Separation */}
         <div className="services-mobile-container">
           {/* First Pair - Web Development & Mobile Apps */}
           <div className="services-pair">
@@ -182,6 +188,14 @@ const Services = memo(() => {
           {/* Second Pair - UI/UX Design & Digital Marketing */}
           <div className="services-pair">
             {secondPair.map((service, index) => renderServiceCard(service, index + 2))}
+          </div>
+
+          {/* Separator between pairs */}
+          <div className="pair-separator"></div>
+
+          {/* Third Pair - Cloud Solutions & Data Analytics */}
+          <div className="services-pair">
+            {thirdPair.map((service, index) => renderServiceCard(service, index + 4))}
           </div>
         </div>
       </div>

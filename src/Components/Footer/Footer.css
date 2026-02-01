@@ -91,8 +91,8 @@
 
 .footer-content {
   display: grid;
-  grid-template-columns: 1fr 1fr 1.2fr;
-  gap: 60px;
+  grid-template-columns: 1fr 1fr 1fr 1.2fr;
+  gap: 50px;
   margin-bottom: 60px;
 }
 
@@ -310,7 +310,7 @@
   }
 
   .footer-links.open {
-    max-height: 200px;
+    max-height: 250px;
     opacity: 1;
     transform: translateY(0);
     margin-top: 16px;
@@ -368,7 +368,7 @@
   }
 
   .footer-links.open {
-    max-height: 180px;
+    max-height: 220px;
   }
 
   .social-links {

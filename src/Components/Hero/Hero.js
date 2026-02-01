@@ -63,7 +63,7 @@ const Hero = () => {
           
           setTimeout(() => {
             orb.style.transition = 'opacity 2s ease, transform 2s ease';
-            orb.style.opacity = '0.6';
+            orb.style.opacity = '0.4';
             orb.style.transform = 'scale(1)';
           }, 500 + (index * 200));
         });
@@ -78,14 +78,20 @@ const Hero = () => {
 
           const orbs = document.querySelectorAll('.floating-orb');
           orbs.forEach((orb, index) => {
-            const speed = 0.5 + (index * 0.2);
-            orb.style.transform += ` translateY(${scrollY * speed}px)`;
+            const speed = 0.3 + (index * 0.1);
+            orb.style.transform = `translateY(${scrollY * speed}px)`;
           });
 
           const scrollIndicator = document.querySelector('.scroll-indicator');
           if (scrollIndicator) {
             const opacity = Math.max(0, 1 - (scrollY / windowHeight));
             scrollIndicator.style.opacity = opacity;
+          }
+
+          // Parallax effect on background image
+          const bgImage = document.querySelector('.hero-bg-image');
+          if (bgImage) {
+            bgImage.style.transform = `translateY(${scrollY * 0.5}px) scale(1.1)`;
           }
 
           ticking = false;
@@ -115,75 +121,56 @@ const Hero = () => {
         const totalImages = images.length;
         let isTransitioning = false;
 
-        // Clone first and last images for seamless loop
-        const firstImageClone = images[0].cloneNode(true);
-        const lastImageClone = images[totalImages - 1].cloneNode(true);
-        
-        carousel.appendChild(firstImageClone);
-        carousel.insertBefore(lastImageClone, images[0]);
-
-        // Update positions
-        const updateCarouselPosition = (index, transition = true) => {
-          if (isTransitioning) return;
-          
-          isTransitioning = true;
-          const translateX = -(index + 1) * 100;
-          
-          carousel.style.transition = transition ? 'transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
-          carousel.style.transform = `translateX(${translateX}%)`;
-          
-          setTimeout(() => {
-            isTransitioning = false;
-          }, transition ? 800 : 50);
-        };
+        // Show first image
+        images[currentIndex].classList.add('active');
 
         // Auto-slide functionality
         const nextSlide = () => {
           if (isTransitioning) return;
           
-          currentIndex++;
-          updateCarouselPosition(currentIndex);
+          isTransitioning = true;
           
-          // Reset to first image when reaching the end
-          if (currentIndex >= totalImages) {
-            setTimeout(() => {
-              currentIndex = 0;
-              updateCarouselPosition(currentIndex, false);
-            }, 800);
-          }
+          // Remove active class from current image
+          images[currentIndex].classList.remove('active');
+          
+          // Move to next image
+          currentIndex = (currentIndex + 1) % totalImages;
+          
+          // Add active class to new image
+          images[currentIndex].classList.add('active');
+          
+          // Update indicators
+          this.updateIndicators(currentIndex, totalImages);
+          
+          setTimeout(() => {
+            isTransitioning = false;
+          }, 1000);
         };
 
-        // Initialize position
-        updateCarouselPosition(0, false);
+        // Initialize indicators
+        this.createSlideIndicators(totalImages, currentIndex);
 
         // Start auto-sliding
-        const autoSlideInterval = setInterval(nextSlide, 4000);
+        const autoSlideInterval = setInterval(nextSlide, 5000);
 
         // Pause on hover
-        const carouselContainer = document.querySelector('.hero-image-container');
-        if (carouselContainer) {
-          carouselContainer.addEventListener('mouseenter', () => {
+        const heroContainer = document.querySelector('.hero-section');
+        if (heroContainer) {
+          heroContainer.addEventListener('mouseenter', () => {
             clearInterval(autoSlideInterval);
           });
 
-          carouselContainer.addEventListener('mouseleave', () => {
-            // Resume auto-sliding when mouse leaves
-            setTimeout(() => {
-              const newInterval = setInterval(nextSlide, 4000);
-              // Store interval for cleanup if needed
-              carouselContainer.autoSlideInterval = newInterval;
-            }, 1000);
+          heroContainer.addEventListener('mouseleave', () => {
+            const newInterval = setInterval(nextSlide, 5000);
+            heroContainer.autoSlideInterval = newInterval;
           });
         }
-
-        // Add slide indicators
-        this.createSlideIndicators(totalImages, currentIndex);
 
         // Cleanup function
         return () => {
           clearInterval(autoSlideInterval);
-          if (carouselContainer && carouselContainer.autoSlideInterval) {
-            clearInterval(carouselContainer.autoSlideInterval);
+          if (heroContainer && heroContainer.autoSlideInterval) {
+            clearInterval(heroContainer.autoSlideInterval);
           }
         };
       }
@@ -197,20 +184,39 @@ const Hero = () => {
         for (let i = 0; i < totalImages; i++) {
           const indicator = document.createElement('div');
           indicator.className = `carousel-indicator ${i === currentIndex ? 'active' : ''}`;
+          indicator.dataset.index = i;
           indicator.addEventListener('click', () => {
-            // Manual slide control can be added here
-            console.log(`Switch to slide ${i}`);
+            this.jumpToSlide(i);
           });
           indicatorsContainer.appendChild(indicator);
         }
       }
 
+      updateIndicators(currentIndex, totalImages) {
+        const indicators = document.querySelectorAll('.carousel-indicator');
+        indicators.forEach((indicator, index) => {
+          if (index === currentIndex) {
+            indicator.classList.add('active');
+          } else {
+            indicator.classList.remove('active');
+          }
+        });
+      }
+
+      jumpToSlide(index) {
+        const images = document.querySelectorAll('.carousel-image');
+        const currentActive = document.querySelector('.carousel-image.active');
+        
+        if (currentActive) {
+          currentActive.classList.remove('active');
+        }
+        
+        images[index].classList.add('active');
+        this.updateIndicators(index, images.length);
+      }
+
       setupInteractiveElements() {
         this.setupButtonEffects();
-        this.setupPanelEffects();
-        this.setupImageEffects();
-        this.setupServiceItems();
-        this.setupAvatarEffects();
       }
 
       setupButtonEffects() {
@@ -240,7 +246,7 @@ const Hero = () => {
           height: ${size}px;
           left: ${x}px;
           top: ${y}px;
-          background: rgba(255, 255, 255, 0.1);
+          background: rgba(255, 255, 255, 0.2);
           border-radius: 50%;
           transform: scale(0);
           animation: ripple 0.6s linear;
@@ -256,88 +262,11 @@ const Hero = () => {
       }
 
       createClickEffect(button, event) {
-        button.style.transform = 'scale(0.98)';
+        button.style.transform = 'scale(0.95)';
         
         setTimeout(() => {
           button.style.transform = '';
         }, 150);
-      }
-
-      setupPanelEffects() {
-        const panels = document.querySelectorAll('.services-panel, .trust-panel');
-        
-        panels.forEach(panel => {
-          panel.addEventListener('mouseenter', () => {
-            panel.style.transform = 'translateY(-8px) scale(1.02)';
-          });
-          
-          panel.addEventListener('mouseleave', () => {
-            panel.style.transform = '';
-          });
-        });
-      }
-
-      setupImageEffects() {
-        const imageContainer = document.querySelector('.hero-image-container');
-        
-        if (imageContainer) {
-          imageContainer.addEventListener('mousemove', (e) => {
-            const rect = imageContainer.getBoundingClientRect();
-            const x = (e.clientX - rect.left) / rect.width;
-            const y = (e.clientY - rect.top) / rect.height;
-            
-            const rotateX = (y - 0.5) * 5;
-            const rotateY = (x - 0.5) * -5;
-            
-            imageContainer.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-          });
-          
-          imageContainer.addEventListener('mouseleave', () => {
-            imageContainer.style.transform = '';
-          });
-        }
-      }
-
-      setupServiceItems() {
-        const serviceItems = document.querySelectorAll('.service-item');
-        
-        serviceItems.forEach((item, index) => {
-          item.addEventListener('mouseenter', () => {
-            item.style.transform = 'translateX(10px)';
-            item.style.color = 'var(--text-primary)';
-            
-            const icon = item.querySelector('.service-icon');
-            if (icon) {
-              icon.style.filter = 'drop-shadow(0 0 10px rgba(79, 172, 254, 0.5))';
-            }
-          });
-          
-          item.addEventListener('mouseleave', () => {
-            item.style.transform = '';
-            item.style.color = '';
-            
-            const icon = item.querySelector('.service-icon');
-            if (icon) {
-              icon.style.filter = '';
-            }
-          });
-        });
-      }
-
-      setupAvatarEffects() {
-        const avatars = document.querySelectorAll('.avatar');
-        
-        avatars.forEach(avatar => {
-          avatar.addEventListener('mouseenter', () => {
-            avatar.style.transform = 'translateY(-5px) scale(1.15)';
-            avatar.style.filter = 'drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3))';
-          });
-          
-          avatar.addEventListener('mouseleave', () => {
-            avatar.style.transform = '';
-            avatar.style.filter = '';
-          });
-        });
       }
     }
 
@@ -363,8 +292,13 @@ const Hero = () => {
           }
         }
         
-        .slide-up-animation {
-          animation: slideUpFade 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
         }
       `;
       document.head.appendChild(style);
@@ -375,7 +309,6 @@ const Hero = () => {
 
     // Cleanup function
     return () => {
-      // Remove event listeners and cleanup
       const style = document.querySelector('style[data-hero-animations]');
       if (style) {
         style.remove();
@@ -384,95 +317,101 @@ const Hero = () => {
   }, []);
 
   const handleDiscoverClick = () => {
-    console.log('Discover Our Services clicked');
-    // Add your navigation logic here
+    window.location.href = '/solutions';
   };
 
   const handleContactClick = () => {
-    console.log('Get in Touch clicked');
-    // Add your navigation logic here
+    window.location.href = '/contactform';
   };
 
   return (
     <div className="landing-page" ref={heroRef}>
-      {/* Animated Background */}
+      {/* Full Page Background Image Carousel */}
+      <div className="hero-bg-container">
+        <div className="image-carousel">
+          <div className="carousel-image active">
+            <img 
+              src="front.png" 
+              alt="Team collaboration" 
+              loading="eager"
+            />
+          </div>
+          <div className="carousel-image">
+            <img 
+              src="front2.png" 
+              alt="Digital innovation" 
+              loading="lazy"
+            />
+          </div>
+          <div className="carousel-image">
+            <img 
+              src="front3.png" 
+              alt="Technology solutions" 
+              loading="lazy"
+            />
+          </div>
+          <div className="carousel-image">
+            <img 
+              src="front4.png" 
+              alt="Business growth" 
+              loading="lazy"
+            />
+          </div>
+        </div>
+        
+        {/* Dark Overlay for better text readability */}
+        <div className="hero-overlay"></div>
+      </div>
+
+      {/* Animated Background Orbs */}
       <div className="bg-animation">
         <div className="floating-orb orb-1"></div>
         <div className="floating-orb orb-2"></div>
         <div className="floating-orb orb-3"></div>
       </div>
 
-      {/* Hero Section */}
+      {/* Hero Content Overlay */}
       <main className="hero-section">
-        <div className="hero-content" data-animate="slide-up" data-delay="0.1">
-          <p className="hero-tagline" data-animate="slide-up" data-delay="0.2">
-            Empowering Your Digital Vision
-          </p>
-          <h1 className="hero-title" data-animate="slide-up" data-delay="0.3">
-            Innovation For<br/>
-            Your Digital<br/>
-            <span className="gradient-text2">Success</span>
-          </h1>
-          <p className="hero-subtitle" data-animate="slide-up" data-delay="0.4">
-            At Centric, We Fuse Innovation And Purpose To Fuel Your Digital 
-            Success. Let's Create Something Extraordinary Together.
-          </p>
+        <div className="hero-content-wrapper">
+          <div className="hero-content" data-animate="slide-up" data-delay="0.2">
+            <p className="hero-tagline" data-animate="slide-up" data-delay="0.3">
+              Empowering Your Digital Vision
+            </p>
+            <h1 className="hero-title" data-animate="slide-up" data-delay="0.4">
+              Innovation For<br/>
+              Your Digital<br/>
+              <span className="gradient-text2">Success</span>
+            </h1>
+            <p className="hero-subtitle" data-animate="slide-up" data-delay="0.5">
+              At Centric, We Fuse Innovation And Purpose To Fuel Your Digital 
+              Success. Let's Create Something Extraordinary Together.
+            </p>
 
-          <div className="hero-actions" data-animate="slide-up" data-delay="0.5">
-            <button 
-              className="discover-btn"
-              onClick={() => window.location.href = '/solutions'}
-            >
-              <span>Discover Our Services</span>
-              <div className="btn-glow"></div>
-            </button>
-            <button 
-              className="contact-btn" 
-              onClick={() => window.location.href = '/contactform'}
-            >
-              <span>Get in Touch</span>
-            </button>
+            <div className="hero-actions" data-animate="slide-up" data-delay="0.6">
+              <button 
+                className="discover-btn"
+                onClick={handleDiscoverClick}
+              >
+                <span>Discover Our Services</span>
+                <div className="btn-glow"></div>
+              </button>
+              <button 
+                className="contact-btn" 
+                onClick={handleContactClick}
+              >
+                <span>Get in Touch</span>
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* Right side visual with Image Carousel */}
-        <div className="hero-visual" data-animate="slide-up" data-delay="0.6">
-          <div className="hero-image-container">
-            <div className="image-glow"></div>
-            
-            {/* Image Carousel */}
-            <div className="carousel-wrapper">
-              <div className="image-carousel">
-                <img 
-                  src="front.png" 
-                  alt="Team collaboration" 
-                  className="carousel-image"
-                  loading="lazy"
-                />
-                <img 
-                  src="front2.png" 
-                  alt="Digital innovation" 
-                  className="carousel-image"
-                  loading="lazy"
-                />
-                <img 
-                  src="front3.png" 
-                  alt="Technology solutions" 
-                  className="carousel-image"
-                  loading="lazy"
-                />
-                <img 
-                  src="front4.png" 
-                  alt="Business growth" 
-                  className="carousel-image"
-                  loading="lazy"
-                />
-              </div>
-            </div>
+        {/* Carousel Indicators */}
+        <div className="carousel-indicators"></div>
 
-            {/* Carousel Indicators */}
-            <div className="carousel-indicators"></div>
-          </div>
+        {/* Scroll Indicator */}
+        <div className="scroll-indicator">
+          <div className="scroll-dot"></div>
+          <div className="scroll-line"></div>
         </div>
       </main>
     </div>

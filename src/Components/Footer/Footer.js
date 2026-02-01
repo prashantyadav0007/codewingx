@@ -22,6 +22,27 @@ const Footer = () => {
       
       <div className="footer-container">
         <div className="footer-content">
+          {/* Company Section */}
+          <div className="footer-section">
+            <h3 
+              className="footer-title dropdown-toggle" 
+              onClick={() => toggleDropdown('company')}
+            >
+              <Sparkles className="title-icon" />
+              COMPANY
+              <div className="dropdown-icon">
+                {openDropdown === 'company' ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+              </div>
+            </h3>
+            <ul className={`footer-links ${openDropdown === 'company' ? 'open' : ''}`}>
+              <li><a href="/overview">Overview</a></li>
+              <li><a href="/initiative">Initiative by Serpent</a></li>
+              <li><a href="/culture">Company Culture</a></li>
+              <li><a href="/career">Career</a></li>
+              <li><a href="/contact">Contact Us</a></li>
+            </ul>
+          </div>
+
           {/* Pages Section */}
           <div className="footer-section">
             <h3 
@@ -36,6 +57,7 @@ const Footer = () => {
             </h3>
             <ul className={`footer-links ${openDropdown === 'discover' ? 'open' : ''}`}>
               <li><a href="/about">About Us</a></li>
+              <li><a href="/Founder">Founder</a></li>
               <li><a href="/contactform">Contact Us</a></li>
               <li><a href="/about">Services</a></li>
               <li><a href="/blog">Blog</a></li>
@@ -100,7 +122,7 @@ const Footer = () => {
             <span className="logo-text">odewingx</span>
           </div>
           <div className="footer-credits">
-            <span>Copyright © CodeWingx | Designed by CodeWingx</span>
+            <span>Copyright @ 2026 CodeWingx | All rights reserved.</span>
           </div>
         </div>
       </div>
