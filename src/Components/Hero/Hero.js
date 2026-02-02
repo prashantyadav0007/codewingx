@@ -5,13 +5,17 @@ const Hero = () => {
   const heroRef = useRef(null);
 
   useEffect(() => {
+    let observer = null;
+    let scrollCleanup = null;
+    let carouselCleanup = null;
+
     class HeroAnimations {
       constructor() {
         this.init();
-        this.setupIntersectionObserver();
-        this.setupScrollEffects();
+        observer = this.setupIntersectionObserver();
+        scrollCleanup = this.setupScrollEffects();
         this.setupInteractiveElements();
-        this.setupImageCarousel();
+        carouselCleanup = this.setupImageCarousel();
       }
 
       init() {
@@ -24,7 +28,7 @@ const Hero = () => {
           rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        const intersectionObserver = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
               const delay = parseFloat(entry.target.dataset.delay) * 1000 || 0;
@@ -37,7 +41,9 @@ const Hero = () => {
         }, observerOptions);
 
         const animatedElements = document.querySelectorAll('[data-animate]');
-        animatedElements.forEach(el => observer.observe(el));
+        animatedElements.forEach(el => intersectionObserver.observe(el));
+
+        return intersectionObserver;
       }
 
       animateOnLoad() {
@@ -115,11 +121,12 @@ const Hero = () => {
         const carousel = document.querySelector('.image-carousel');
         const images = document.querySelectorAll('.carousel-image');
         
-        if (!carousel || images.length === 0) return;
+        if (!carousel || images.length === 0) return () => {};
 
         let currentIndex = 0;
         const totalImages = images.length;
         let isTransitioning = false;
+        let autoSlideInterval = null;
 
         // Show first image
         images[currentIndex].classList.add('active');
@@ -151,26 +158,36 @@ const Hero = () => {
         this.createSlideIndicators(totalImages, currentIndex);
 
         // Start auto-sliding
-        const autoSlideInterval = setInterval(nextSlide, 5000);
+        autoSlideInterval = setInterval(nextSlide, 5000);
 
         // Pause on hover
         const heroContainer = document.querySelector('.hero-section');
-        if (heroContainer) {
-          heroContainer.addEventListener('mouseenter', () => {
+        const handleMouseEnter = () => {
+          if (autoSlideInterval) {
             clearInterval(autoSlideInterval);
-          });
+            autoSlideInterval = null;
+          }
+        };
 
-          heroContainer.addEventListener('mouseleave', () => {
-            const newInterval = setInterval(nextSlide, 5000);
-            heroContainer.autoSlideInterval = newInterval;
-          });
+        const handleMouseLeave = () => {
+          if (!autoSlideInterval) {
+            autoSlideInterval = setInterval(nextSlide, 5000);
+          }
+        };
+
+        if (heroContainer) {
+          heroContainer.addEventListener('mouseenter', handleMouseEnter);
+          heroContainer.addEventListener('mouseleave', handleMouseLeave);
         }
 
         // Cleanup function
         return () => {
-          clearInterval(autoSlideInterval);
-          if (heroContainer && heroContainer.autoSlideInterval) {
-            clearInterval(heroContainer.autoSlideInterval);
+          if (autoSlideInterval) {
+            clearInterval(autoSlideInterval);
+          }
+          if (heroContainer) {
+            heroContainer.removeEventListener('mouseenter', handleMouseEnter);
+            heroContainer.removeEventListener('mouseleave', handleMouseLeave);
           }
         };
       }
@@ -273,6 +290,7 @@ const Hero = () => {
     // Add custom CSS animations
     const addCustomCSS = () => {
       const style = document.createElement('style');
+      style.setAttribute('data-hero-animations', 'true');
       style.textContent = `
         @keyframes ripple {
           to {
@@ -305,11 +323,21 @@ const Hero = () => {
     };
 
     addCustomCSS();
-    const heroAnimations = new HeroAnimations();
+    new HeroAnimations();
 
     // Cleanup function
     return () => {
-      const style = document.querySelector('style[data-hero-animations]');
+      if (observer) {
+        observer.disconnect();
+      }
+      if (scrollCleanup) {
+        scrollCleanup();
+      }
+      if (carouselCleanup) {
+        carouselCleanup();
+      }
+      
+      const style = document.querySelector('style[data-hero-animations="true"]');
       if (style) {
         style.remove();
       }
