@@ -1,7 +1,22 @@
 import React from 'react';
 import './WhyChoose.css';
+import { Link } from 'react-router-dom';
 
 const WhyChoose = () => {
+  const handleCopyLink = () => {
+    const currentUrl = window.location.href;
+    navigator.clipboard.writeText(currentUrl).then(() => {
+      alert('Link copied to clipboard!');
+    }).catch((err) => {
+      console.error('Failed to copy link: ', err);
+    });
+  };
+
+  const handlePlayVideo = () => {
+    // Add your video play functionality here
+    console.log('Play video');
+  };
+
   return (
     <div className="why-choose-container">
       <div className="why-choose-header">
@@ -25,12 +40,12 @@ const WhyChoose = () => {
           
           <div className="stat-item">
             <span className="stat-bullet">■</span>
-            <span>A quality-first approach based on a mature ISO 9001-certified <a href="#" className="link-text">quality management system</a>.</span>
+            <span>A quality-first approach based on a mature ISO 9001-certified <Link to="/quality-management" className="link-text">quality management system</Link>.</span>
           </div>
           
           <div className="stat-item">
             <span className="stat-bullet">■</span>
-            <span>ISO 27001-certified <a href="#" className="link-text">security management</a> based on field-tested security knowledge, ever-green policies, effective processes, advanced security technology, and skilled professionals.</span>
+            <span>ISO 27001-certified <Link to="/security-management" className="link-text">security management</Link> based on field-tested security knowledge, ever-green policies, effective processes, advanced security technology, and skilled professionals.</span>
           </div>
         </div>
       </div>
@@ -42,15 +57,19 @@ const WhyChoose = () => {
               <div className="video-content">
                 <div className="video-logo">CodewingX</div>
                 <h2 className="video-title">PICKING THE RIGHT<br/>IT PARTNER</h2>
-                <div className="play-button">
+                <button 
+                  className="play-button"
+                  onClick={handlePlayVideo}
+                  aria-label="Play video"
+                >
                   <svg width="60" height="60" viewBox="0 0 60 60">
                     <circle cx="30" cy="30" r="30" fill="#FF0000"/>
                     <polygon points="24,18 24,42 42,30" fill="white"/>
                   </svg>
-                </div>
+                </button>
                 <div className="video-info">
                   <span className="video-text">Why Companies Choose CodewingX as an IT Partner</span>
-                  <button className="copy-link-btn">Copy link</button>
+                  <button className="copy-link-btn" onClick={handleCopyLink}>Copy link</button>
                 </div>
               </div>
             </div>
@@ -73,23 +92,25 @@ const WhyChoose = () => {
             <p className="success-description">
               CodewingX does not pass mere project administration off as project management, a practice that's unfortunately common in the market. We drive projects to their goals, mitigating risks and overcoming constraints.
             </p>
-            <button className="cta-button">
-              See how we deliver results →
-            </button>
+            <Link to="/how-we-deliver">
+              <button className="cta-button">
+                See how we deliver results →
+              </button>
+            </Link>
           </div>
           <div className="success-visual">
             <div className="mountain-illustration">
               <svg width="100%" height="100%" viewBox="0 0 400 300" className="mountain-svg">
                 <defs>
                   <linearGradient id="mountainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#3B82F6" />
-                    <stop offset="50%" stopColor="#1E40AF" />
-                    <stop offset="100%" stopColor="#1E3A8A" />
+                    <stop offset="0%" style={{ stopColor: '#3B82F6' }} />
+                    <stop offset="50%" style={{ stopColor: '#1E40AF' }} />
+                    <stop offset="100%" style={{ stopColor: '#1E3A8A' }} />
                   </linearGradient>
                   <linearGradient id="skyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#FDE68A" />
-                    <stop offset="50%" stopColor="#FCA5A5" />
-                    <stop offset="100%" stopColor="#C084FC" />
+                    <stop offset="0%" style={{ stopColor: '#FDE68A' }} />
+                    <stop offset="50%" style={{ stopColor: '#FCA5A5' }} />
+                    <stop offset="100%" style={{ stopColor: '#C084FC' }} />
                   </linearGradient>
                 </defs>
                 

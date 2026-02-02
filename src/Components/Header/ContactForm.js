@@ -48,12 +48,6 @@ const ContactForm = () => {
     marginBottom: '30px'
   };
 
-  const formStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '20px'
-  };
-
   const formGroupStyle = {
     display: 'flex',
     flexDirection: 'column',
@@ -74,13 +68,6 @@ const ContactForm = () => {
     transition: 'all 0.3s ease',
     fontFamily: 'inherit',
     background: 'rgba(255, 255, 255, 0.8)'
-  };
-
-  const inputFocusStyle = {
-    ...inputStyle,
-    borderColor: '#8b5cf6',
-    boxShadow: '0 0 0 3px rgba(139, 92, 246, 0.1)',
-    background: 'white'
   };
 
   const inputErrorStyle = {
@@ -227,7 +214,6 @@ const ContactForm = () => {
   return (
     <>
       <style>{`
-        /* Custom dropdown option styling */
         select option {
           background: linear-gradient(135deg, #fdf2f8 0%, #f3e8ff 50%, #e0e7ff 100%);
           color: #374151;
@@ -247,7 +233,6 @@ const ContactForm = () => {
           font-weight: 600;
         }
         
-        /* Custom scrollbar for dropdown */
         select::-webkit-scrollbar {
           width: 8px;
         }
@@ -277,6 +262,7 @@ const ContactForm = () => {
                   background: 'linear-gradient(135deg, #ec4899 0%, #8b5cf6 50%, #6366f1 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
                   fontSize: '32px', 
                   fontWeight: '700',
                   marginBottom: '10px'
@@ -288,7 +274,7 @@ const ContactForm = () => {
                 </p>
               </div>
               
-              <div style={formStyle}>
+              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                 <div style={formGroupStyle}>
                   <label style={labelStyle}>Name *</label>
                   <input
@@ -388,20 +374,9 @@ const ContactForm = () => {
                       }
                     }}
                   >
-                    <option value="" style={{ 
-                      background: 'rgba(255, 255, 255, 0.95)',
-                      color: '#9ca3af',
-                      fontStyle: 'italic'
-                    }}>
-                      Select a service
-                    </option>
+                    <option value="">Select a service</option>
                     {services.map((service, index) => (
-                      <option key={index} value={service} style={{
-                        background: 'linear-gradient(135deg, #fdf2f8 0%, #f3e8ff 50%, #e0e7ff 100%)',
-                        color: '#374151',
-                        padding: '8px 12px',
-                        fontWeight: '500'
-                      }}>
+                      <option key={index} value={service}>
                         {service}
                       </option>
                     ))}
@@ -443,16 +418,15 @@ const ContactForm = () => {
                       name="readmeCheck"
                       checked={formData.readmeCheck}
                       onChange={handleInputChange}
-                      style={{ marginTop: '2px', accentColor: '#8b5cf6' }}
+                      style={{ marginTop: '2px', accentColor: '#8b5cf6', cursor: 'pointer' }}
                     />
-                    I have read and agree to the terms and conditions *
+                    <span>I have read and agree to the terms and conditions *</span>
                   </label>
-                  {errors.readmeCheck && <span style={{ color: '#dc3545', fontSize: '12px' }}>{errors.readmeCheck}</span>}
+                  {errors.readmeCheck && <span style={{ color: '#dc3545', fontSize: '12px', display: 'block', marginTop: '4px' }}>{errors.readmeCheck}</span>}
                 </div>
 
                 <button
                   type="submit"
-                  onClick={handleSubmit}
                   style={submitBtnStyle}
                   onMouseEnter={(e) => {
                     e.target.style.transform = 'translateY(-2px)';
@@ -465,7 +439,7 @@ const ContactForm = () => {
                 >
                   Send Message
                 </button>
-              </div>
+              </form>
             </>
           ) : (
             <div style={successStyle}>
@@ -474,6 +448,7 @@ const ContactForm = () => {
                 background: 'linear-gradient(135deg, #ec4899 0%, #8b5cf6 50%, #6366f1 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
                 fontSize: '28px', 
                 marginBottom: '10px',
                 fontWeight: '700'
