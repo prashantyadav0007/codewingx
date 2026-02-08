@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import './Header.css'; // Import the CSS file
+import './Header.css';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
@@ -34,7 +34,6 @@ const Header = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-    // Close mobile dropdown when main menu closes
     if (isMenuOpen) {
       setIsMobileAboutDropdownOpen(false);
       setIsMobileServicesDropdownOpen(false);
@@ -126,22 +125,40 @@ const Header = () => {
                 </button>
                 
                 <div className={`dropdown-menu ${isAboutDropdownOpen ? 'open' : ''}`}>
-                  <div className="dropdown-content">
-                    <div className="dropdown-section">
-                      <h4 className="dropdown-section-title">Company</h4>
-                      <Link to="/about" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>About Company</Link>
-                      <Link to="/about" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Mission</Link>
-                      <Link to="/ourteam" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Our Team</Link>
-                      <Link to="/clientreviews" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Client Reviews</Link>
-                      <Link to="/about/locations" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Locations</Link>
+                  <div className="dropdown-grid">
+                    <div className="dropdown-column">
+                      <h4 className="dropdown-column-title">Company</h4>
+                      <Link to="/about" className="dropdown-item" onClick={() => setIsAboutDropdownOpen(false)}>
+                        <span className="item-text">About Company</span>
+                      </Link>
+                      <Link to="/about" className="dropdown-item" onClick={() => setIsAboutDropdownOpen(false)}>
+                        <span className="item-text">Mission</span>
+                      </Link>
+                      <Link to="/ourteam" className="dropdown-item" onClick={() => setIsAboutDropdownOpen(false)}>
+                        <span className="item-text">Our Team</span>
+                      </Link>
+                      <Link to="/clientreviews" className="dropdown-item" onClick={() => setIsAboutDropdownOpen(false)}>
+                        <span className="item-text">Client Reviews</span>
+                      </Link>
+                      <Link to="/about/locations" className="dropdown-item" onClick={() => setIsAboutDropdownOpen(false)}>
+                        <span className="item-text">Locations</span>
+                      </Link>
                     </div>
                     
-                    <div className="dropdown-section">
-                      <h4 className="dropdown-section-title">Approach</h4>
-                      <Link to="/wherestart" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Where to Start</Link>
-                      <Link to="/Approachtosd" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Approach to Software Development</Link>
-                      <Link to="/ourpartners" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Our Partnership</Link>
-                      <Link to="/approach/sustainability-policy" className="dropdown-link" onClick={() => setIsAboutDropdownOpen(false)}>Sustainability Policy</Link>
+                    <div className="dropdown-column">
+                      <h4 className="dropdown-column-title">Approach</h4>
+                      <Link to="/wherestart" className="dropdown-item" onClick={() => setIsAboutDropdownOpen(false)}>
+                        <span className="item-text">Where to Start</span>
+                      </Link>
+                      <Link to="/Approachtosd" className="dropdown-item" onClick={() => setIsAboutDropdownOpen(false)}>
+                        <span className="item-text">Software Development</span>
+                      </Link>
+                      <Link to="/ourpartners" className="dropdown-item" onClick={() => setIsAboutDropdownOpen(false)}>
+                        <span className="item-text">Our Partnership</span>
+                      </Link>
+                      <Link to="/approach/sustainability-policy" className="dropdown-item" onClick={() => setIsAboutDropdownOpen(false)}>
+                        <span className="item-text">Sustainability Policy</span>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -160,35 +177,69 @@ const Header = () => {
                   />
                 </button>
                 
-                <div className={`dropdown-menu services-dropdown ${isServicesDropdownOpen ? 'open' : ''}`}>
-                  <div className="dropdown-content">
-                    <div className="dropdown-section">
-                      <h4 className="dropdown-section-title">Development</h4>
-                      <Link to="/softwaredev" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>Software Development</Link>
-                      <Link to="/webdev" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>Web Development</Link>
-                      <Link to="/services/mobile-app-development" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>Mobile App Development</Link>
-                      <Link to="/services/ux-design" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>UX Design</Link>
-                      <Link to="/services/ui-design" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>UI Design</Link>
-                      <Link to="/services/testing-qa" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>Testing and QA</Link>
+                <div className={`dropdown-menu dropdown-menu-large ${isServicesDropdownOpen ? 'open' : ''}`}>
+                  <div className="dropdown-grid dropdown-grid-3">
+                    <div className="dropdown-column">
+                      <h4 className="dropdown-column-title">Development</h4>
+                      <Link to="/softwaredev" className="dropdown-item" onClick={() => setIsServicesDropdownOpen(false)}>
+                        <span className="item-text">Software Development</span>
+                      </Link>
+                      <Link to="/webdev" className="dropdown-item" onClick={() => setIsServicesDropdownOpen(false)}>
+                        <span className="item-text">Web Development</span>
+                      </Link>
+                      <Link to="/services/mobile-app-development" className="dropdown-item" onClick={() => setIsServicesDropdownOpen(false)}>
+                        <span className="item-text">Mobile App Development</span>
+                      </Link>
+                      <Link to="/services/ux-design" className="dropdown-item" onClick={() => setIsServicesDropdownOpen(false)}>
+                        <span className="item-text">UX Design</span>
+                      </Link>
+                      <Link to="/services/ui-design" className="dropdown-item" onClick={() => setIsServicesDropdownOpen(false)}>
+                        <span className="item-text">UI Design</span>
+                      </Link>
+                      <Link to="/services/testing-qa" className="dropdown-item" onClick={() => setIsServicesDropdownOpen(false)}>
+                        <span className="item-text">Testing and QA</span>
+                      </Link>
                     </div>
                     
-                    <div className="dropdown-section">
-                      <h4 className="dropdown-section-title">Consulting</h4>
-                      <Link to="/services/it-consulting" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>IT Consulting</Link>
-                      <Link to="/services/digital-transformation" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>Digital Transformation</Link>
-                      <Link to="/services/it-outsourcing" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>IT Outsourcing</Link>
-                      <Link to="/services/managed-it-services" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>Managed IT Services</Link>
-                      <Link to="/services/application-services" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>Application Services</Link>
-                      <Link to="/services/data-analytics" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>Data Analytics</Link>
+                    <div className="dropdown-column">
+                      <h4 className="dropdown-column-title">Consulting</h4>
+                      <Link to="/services/it-consulting" className="dropdown-item" onClick={() => setIsServicesDropdownOpen(false)}>
+                        <span className="item-text">IT Consulting</span>
+                      </Link>
+                      <Link to="/services/digital-transformation" className="dropdown-item" onClick={() => setIsServicesDropdownOpen(false)}>
+                        <span className="item-text">Digital Transformation</span>
+                      </Link>
+                      <Link to="/services/it-outsourcing" className="dropdown-item" onClick={() => setIsServicesDropdownOpen(false)}>
+                        <span className="item-text">IT Outsourcing</span>
+                      </Link>
+                      <Link to="/services/managed-it-services" className="dropdown-item" onClick={() => setIsServicesDropdownOpen(false)}>
+                        <span className="item-text">Managed IT Services</span>
+                      </Link>
+                      <Link to="/services/application-services" className="dropdown-item" onClick={() => setIsServicesDropdownOpen(false)}>
+                        <span className="item-text">Application Services</span>
+                      </Link>
+                      <Link to="/services/data-analytics" className="dropdown-item" onClick={() => setIsServicesDropdownOpen(false)}>
+                        <span className="item-text">Data Analytics</span>
+                      </Link>
                     </div>
                     
-                    <div className="dropdown-section">
-                      <h4 className="dropdown-section-title">Support</h4>
-                      <Link to="/services/it-support" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>IT Support</Link>
-                      <Link to="/services/infrastructure-services" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>Infrastructure Services</Link>
-                      <Link to="/services/it-help-desk" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>IT Help Desk</Link>
-                      <Link to="/services/cybersecurity" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>Cybersecurity</Link>
-                      <Link to="/services/compliance-services" className="dropdown-link" onClick={() => setIsServicesDropdownOpen(false)}>Compliance Services</Link>
+                    <div className="dropdown-column">
+                      <h4 className="dropdown-column-title">Support</h4>
+                      <Link to="/services/it-support" className="dropdown-item" onClick={() => setIsServicesDropdownOpen(false)}>
+                        <span className="item-text">IT Support</span>
+                      </Link>
+                      <Link to="/services/infrastructure-services" className="dropdown-item" onClick={() => setIsServicesDropdownOpen(false)}>
+                        <span className="item-text">Infrastructure Services</span>
+                      </Link>
+                      <Link to="/services/it-help-desk" className="dropdown-item" onClick={() => setIsServicesDropdownOpen(false)}>
+                        <span className="item-text">IT Help Desk</span>
+                      </Link>
+                      <Link to="/services/cybersecurity" className="dropdown-item" onClick={() => setIsServicesDropdownOpen(false)}>
+                        <span className="item-text">Cybersecurity</span>
+                      </Link>
+                      <Link to="/services/compliance-services" className="dropdown-item" onClick={() => setIsServicesDropdownOpen(false)}>
+                        <span className="item-text">Compliance Services</span>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -207,42 +258,70 @@ const Header = () => {
                   />
                 </button>
                 
-                <div className={`dropdown-menu solutions-dropdown ${isSolutionsDropdownOpen ? 'open' : ''}`}>
-                  <div className="dropdown-content">
-                    <div className="dropdown-section">
-                      <h4 className="dropdown-section-title">Corporate Finance</h4>
-                      <Link to="/solutions/financial-management" className="dropdown-link" onClick={() => setIsSolutionsDropdownOpen(false)}>Financial Management</Link>
-                      <Link to="/solutions/payment-management" className="dropdown-link" onClick={() => setIsSolutionsDropdownOpen(false)}>Payment Management</Link>
-                      <Link to="/solutions/accounting-software" className="dropdown-link" onClick={() => setIsSolutionsDropdownOpen(false)}>Accounting Software</Link>
+                <div className={`dropdown-menu dropdown-menu-large ${isSolutionsDropdownOpen ? 'open' : ''}`}>
+                  <div className="dropdown-grid dropdown-grid-4">
+                    <div className="dropdown-column">
+                      <h4 className="dropdown-column-title">Corporate Finance</h4>
+                      <Link to="/solutions/financial-management" className="dropdown-item" onClick={() => setIsSolutionsDropdownOpen(false)}>
+                        <span className="item-text">Financial Management</span>
+                      </Link>
+                      <Link to="/solutions/payment-management" className="dropdown-item" onClick={() => setIsSolutionsDropdownOpen(false)}>
+                        <span className="item-text">Payment Management</span>
+                      </Link>
+                      <Link to="/solutions/accounting-software" className="dropdown-item" onClick={() => setIsSolutionsDropdownOpen(false)}>
+                        <span className="item-text">Accounting Software</span>
+                      </Link>
                     </div>
                     
-                    <div className="dropdown-section">
-                      <h4 className="dropdown-section-title">Analytics</h4>
-                      <Link to="/solutions/data-analytics" className="dropdown-link" onClick={() => setIsSolutionsDropdownOpen(false)}>Data Analytics</Link>
-                      <Link to="/solutions/ai-software" className="dropdown-link" onClick={() => setIsSolutionsDropdownOpen(false)}>AI Software</Link>
+                    <div className="dropdown-column">
+                      <h4 className="dropdown-column-title">Analytics</h4>
+                      <Link to="/solutions/data-analytics" className="dropdown-item" onClick={() => setIsSolutionsDropdownOpen(false)}>
+                        <span className="item-text">Data Analytics</span>
+                      </Link>
+                      <Link to="/solutions/ai-software" className="dropdown-item" onClick={() => setIsSolutionsDropdownOpen(false)}>
+                        <span className="item-text">AI Software</span>
+                      </Link>
                     </div>
                     
-                    <div className="dropdown-section">
-                      <h4 className="dropdown-section-title">Customer Experience</h4>
-                      <Link to="/solutions/crm" className="dropdown-link" onClick={() => setIsSolutionsDropdownOpen(false)}>CRM</Link>
-                      <Link to="/solutions/ecommerce" className="dropdown-link" onClick={() => setIsSolutionsDropdownOpen(false)}>Ecommerce</Link>
-                      <Link to="/solutions/web-portals" className="dropdown-link" onClick={() => setIsSolutionsDropdownOpen(false)}>Web Portals</Link>
-                      <Link to="/solutions/content-management" className="dropdown-link" onClick={() => setIsSolutionsDropdownOpen(false)}>Content Management</Link>
-                      <Link to="/solutions/marketing-advertising" className="dropdown-link" onClick={() => setIsSolutionsDropdownOpen(false)}>Marketing & Advertising</Link>
-                      <Link to="/solutions/kiosk-software" className="dropdown-link" onClick={() => setIsSolutionsDropdownOpen(false)}>Kiosk Software</Link>
+                    <div className="dropdown-column">
+                      <h4 className="dropdown-column-title">Customer Experience</h4>
+                      <Link to="/solutions/crm" className="dropdown-item" onClick={() => setIsSolutionsDropdownOpen(false)}>
+                        <span className="item-text">CRM</span>
+                      </Link>
+                      <Link to="/solutions/ecommerce" className="dropdown-item" onClick={() => setIsSolutionsDropdownOpen(false)}>
+                        <span className="item-text">Ecommerce</span>
+                      </Link>
+                      <Link to="/solutions/web-portals" className="dropdown-item" onClick={() => setIsSolutionsDropdownOpen(false)}>
+                        <span className="item-text">Web Portals</span>
+                      </Link>
+                      <Link to="/solutions/content-management" className="dropdown-item" onClick={() => setIsSolutionsDropdownOpen(false)}>
+                        <span className="item-text">Content Management</span>
+                      </Link>
+                      <Link to="/solutions/marketing-advertising" className="dropdown-item" onClick={() => setIsSolutionsDropdownOpen(false)}>
+                        <span className="item-text">Marketing & Advertising</span>
+                      </Link>
+                      <Link to="/solutions/kiosk-software" className="dropdown-item" onClick={() => setIsSolutionsDropdownOpen(false)}>
+                        <span className="item-text">Kiosk Software</span>
+                      </Link>
                     </div>
                     
-                    <div className="dropdown-section">
-                      <h4 className="dropdown-section-title">HR & Collaboration</h4>
-                      <Link to="/solutions/human-resources" className="dropdown-link" onClick={() => setIsSolutionsDropdownOpen(false)}>Human Resources</Link>
-                      <Link to="/solutions/intranets" className="dropdown-link" onClick={() => setIsSolutionsDropdownOpen(false)}>Intranets</Link>
-                      <Link to="/solutions/elearning" className="dropdown-link" onClick={() => setIsSolutionsDropdownOpen(false)}>eLearning</Link>
+                    <div className="dropdown-column">
+                      <h4 className="dropdown-column-title">HR & Collaboration</h4>
+                      <Link to="/solutions/human-resources" className="dropdown-item" onClick={() => setIsSolutionsDropdownOpen(false)}>
+                        <span className="item-text">Human Resources</span>
+                      </Link>
+                      <Link to="/solutions/intranets" className="dropdown-item" onClick={() => setIsSolutionsDropdownOpen(false)}>
+                        <span className="item-text">Intranets</span>
+                      </Link>
+                      <Link to="/solutions/elearning" className="dropdown-item" onClick={() => setIsSolutionsDropdownOpen(false)}>
+                        <span className="item-text">eLearning</span>
+                      </Link>
                     </div>
                   </div>
                 </div>
               </div>
               
-              <Link to="/projects" className="nav-link cart-link">Projects</Link>
+              <Link to="/projects" className="nav-link">Projects</Link>
             </div>
           )}
 
@@ -284,39 +363,40 @@ const Header = () => {
               </button>
               
               <div className={`mobile-dropdown-menu ${isMobileAboutDropdownOpen ? 'open' : ''}`}>
-                <div className="mobile-dropdown-content">
-                  <div className="mobile-dropdown-section">
-                    <h4 className="mobile-dropdown-section-title">Company</h4>
-                    <Link to="/about" className="mobile-dropdown-link" onClick={closeMobileMenu}>About Company</Link>
-                    <Link to="/about" className="mobile-dropdown-link" onClick={closeMobileMenu}>Mission</Link>
-                    <Link to="/ourteam" className="mobile-dropdown-link" onClick={closeMobileMenu}>Our Team</Link>
-                    <Link to="/clientreviews" className="mobile-dropdown-link" onClick={closeMobileMenu}>Client Reviews</Link>
-                    <Link to="/about/partners" className="mobile-dropdown-link" onClick={closeMobileMenu}>Partners</Link>
-                    <Link to="/about/locations" className="mobile-dropdown-link" onClick={closeMobileMenu}>Locations</Link>
+                <div className="mobile-dropdown-grid">
+                  <div className="mobile-dropdown-column">
+                    <h4 className="mobile-column-title">Company</h4>
+                    <Link to="/about" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">About Company</span>
+                    </Link>
+                    <Link to="/about" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">Mission</span>
+                    </Link>
+                    <Link to="/ourteam" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">Our Team</span>
+                    </Link>
+                    <Link to="/clientreviews" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">Client Reviews</span>
+                    </Link>
+                    <Link to="/about/locations" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">Locations</span>
+                    </Link>
                   </div>
                   
-                  <div className="mobile-dropdown-section">
-                    <h4 className="mobile-dropdown-section-title">Approach</h4>
-                    <Link to="/wherestart" className="mobile-dropdown-link" onClick={closeMobileMenu}>Where to Start</Link>
-                    <Link to="/approach/pricing-models" className="mobile-dropdown-link" onClick={closeMobileMenu}>Pricing Models</Link>
-                    <Link to="/approach/software-development" className="mobile-dropdown-link" onClick={closeMobileMenu}>Approach to Software Development</Link>
-                    <Link to="/approach/security-management" className="mobile-dropdown-link" onClick={closeMobileMenu}>Approach to Security Management</Link>
-                    <Link to="/approach/technology-partnership" className="mobile-dropdown-link" onClick={closeMobileMenu}>Technology Partnership</Link>
-                    <Link to="/approach/sustainability-policy" className="mobile-dropdown-link" onClick={closeMobileMenu}>Sustainability Policy</Link>
-                    <Link to="/approach/faq" className="mobile-dropdown-link" onClick={closeMobileMenu}>FAQ</Link>
-                  </div>
-                  
-                  <div className="mobile-dropdown-section">
-                    <h4 className="mobile-dropdown-section-title">Recognition</h4>
-                    <Link to="/recognition/testimonials" className="mobile-dropdown-link" onClick={closeMobileMenu}>Testimonials</Link>
-                    <Link to="/recognition/awards" className="mobile-dropdown-link" onClick={closeMobileMenu}>Awards</Link>
-                  </div>
-                  
-                  <div className="mobile-dropdown-section">
-                    <h4 className="mobile-dropdown-section-title">Join Us</h4>
-                    <Link to="/careers" className="mobile-dropdown-link" onClick={closeMobileMenu}>Careers</Link>
-                    <Link to="/careers/become-agent" className="mobile-dropdown-link" onClick={closeMobileMenu}>Become Our Agent</Link>
-                    <Link to="/careers/referral-program" className="mobile-dropdown-link" onClick={closeMobileMenu}>Referral Program</Link>
+                  <div className="mobile-dropdown-column">
+                    <h4 className="mobile-column-title">Approach</h4>
+                    <Link to="/wherestart" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">Where to Start</span>
+                    </Link>
+                    <Link to="/Approachtosd" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">Software Development</span>
+                    </Link>
+                    <Link to="/ourpartners" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">Our Partnership</span>
+                    </Link>
+                    <Link to="/approach/sustainability-policy" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">Sustainability Policy</span>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -336,34 +416,68 @@ const Header = () => {
               </button>
               
               <div className={`mobile-dropdown-menu ${isMobileServicesDropdownOpen ? 'open' : ''}`}>
-                <div className="mobile-dropdown-content">
-                  <div className="mobile-dropdown-section">
-                    <h4 className="mobile-dropdown-section-title">Development</h4>
-                    <Link to="/softwaredev" className="mobile-dropdown-link" onClick={closeMobileMenu}>Software Development</Link>
-                    <Link to="/webdev" className="mobile-dropdown-link" onClick={closeMobileMenu}>Web Development</Link>
-                    <Link to="/services/mobile-app-development" className="mobile-dropdown-link" onClick={closeMobileMenu}>Mobile App Development</Link>
-                    <Link to="/services/ux-design" className="mobile-dropdown-link" onClick={closeMobileMenu}>UX Design</Link>
-                    <Link to="/services/ui-design" className="mobile-dropdown-link" onClick={closeMobileMenu}>UI Design</Link>
-                    <Link to="/services/testing-qa" className="mobile-dropdown-link" onClick={closeMobileMenu}>Testing and QA</Link>
+                <div className="mobile-dropdown-grid">
+                  <div className="mobile-dropdown-column">
+                    <h4 className="mobile-column-title">Development</h4>
+                    <Link to="/softwaredev" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">Software Development</span>
+                    </Link>
+                    <Link to="/webdev" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">Web Development</span>
+                    </Link>
+                    <Link to="/services/mobile-app-development" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">Mobile App Development</span>
+                    </Link>
+                    <Link to="/services/ux-design" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">UX Design</span>
+                    </Link>
+                    <Link to="/services/ui-design" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">UI Design</span>
+                    </Link>
+                    <Link to="/services/testing-qa" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">Testing and QA</span>
+                    </Link>
                   </div>
                   
-                  <div className="mobile-dropdown-section">
-                    <h4 className="mobile-dropdown-section-title">Consulting</h4>
-                    <Link to="/services/it-consulting" className="mobile-dropdown-link" onClick={closeMobileMenu}>IT Consulting</Link>
-                    <Link to="/services/digital-transformation" className="mobile-dropdown-link" onClick={closeMobileMenu}>Digital Transformation</Link>
-                    <Link to="/services/it-outsourcing" className="mobile-dropdown-link" onClick={closeMobileMenu}>IT Outsourcing</Link>
-                    <Link to="/services/managed-it-services" className="mobile-dropdown-link" onClick={closeMobileMenu}>Managed IT Services</Link>
-                    <Link to="/services/application-services" className="mobile-dropdown-link" onClick={closeMobileMenu}>Application Services</Link>
-                    <Link to="/services/data-analytics" className="mobile-dropdown-link" onClick={closeMobileMenu}>Data Analytics</Link>
+                  <div className="mobile-dropdown-column">
+                    <h4 className="mobile-column-title">Consulting</h4>
+                    <Link to="/services/it-consulting" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">IT Consulting</span>
+                    </Link>
+                    <Link to="/services/digital-transformation" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">Digital Transformation</span>
+                    </Link>
+                    <Link to="/services/it-outsourcing" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">IT Outsourcing</span>
+                    </Link>
+                    <Link to="/services/managed-it-services" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">Managed IT Services</span>
+                    </Link>
+                    <Link to="/services/application-services" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">Application Services</span>
+                    </Link>
+                    <Link to="/services/data-analytics" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">Data Analytics</span>
+                    </Link>
                   </div>
                   
-                  <div className="mobile-dropdown-section">
-                    <h4 className="mobile-dropdown-section-title">Support</h4>
-                    <Link to="/services/it-support" className="mobile-dropdown-link" onClick={closeMobileMenu}>IT Support</Link>
-                    <Link to="/services/infrastructure-services" className="mobile-dropdown-link" onClick={closeMobileMenu}>Infrastructure Services</Link>
-                    <Link to="/services/it-help-desk" className="mobile-dropdown-link" onClick={closeMobileMenu}>IT Help Desk</Link>
-                    <Link to="/services/cybersecurity" className="mobile-dropdown-link" onClick={closeMobileMenu}>Cybersecurity</Link>
-                    <Link to="/services/compliance-services" className="mobile-dropdown-link" onClick={closeMobileMenu}>Compliance Services</Link>
+                  <div className="mobile-dropdown-column">
+                    <h4 className="mobile-column-title">Support</h4>
+                    <Link to="/services/it-support" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">IT Support</span>
+                    </Link>
+                    <Link to="/services/infrastructure-services" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">Infrastructure Services</span>
+                    </Link>
+                    <Link to="/services/it-help-desk" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">IT Help Desk</span>
+                    </Link>
+                    <Link to="/services/cybersecurity" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">Cybersecurity</span>
+                    </Link>
+                    <Link to="/services/compliance-services" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">Compliance Services</span>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -383,35 +497,63 @@ const Header = () => {
               </button>
               
               <div className={`mobile-dropdown-menu ${isMobileSolutionsDropdownOpen ? 'open' : ''}`}>
-                <div className="mobile-dropdown-content">
-                  <div className="mobile-dropdown-section">
-                    <h4 className="mobile-dropdown-section-title">Corporate Finance</h4>
-                    <Link to="/solutions/financial-management" className="mobile-dropdown-link" onClick={closeMobileMenu}>Financial Management</Link>
-                    <Link to="/solutions/payment-management" className="mobile-dropdown-link" onClick={closeMobileMenu}>Payment Management</Link>
-                    <Link to="/solutions/accounting-software" className="mobile-dropdown-link" onClick={closeMobileMenu}>Accounting Software</Link>
+                <div className="mobile-dropdown-grid">
+                  <div className="mobile-dropdown-column">
+                    <h4 className="mobile-column-title">Corporate Finance</h4>
+                    <Link to="/solutions/financial-management" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">Financial Management</span>
+                    </Link>
+                    <Link to="/solutions/payment-management" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">Payment Management</span>
+                    </Link>
+                    <Link to="/solutions/accounting-software" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">Accounting Software</span>
+                    </Link>
                   </div>
                   
-                  <div className="mobile-dropdown-section">
-                    <h4 className="mobile-dropdown-section-title">Analytics</h4>
-                    <Link to="/solutions/data-analytics" className="mobile-dropdown-link" onClick={closeMobileMenu}>Data Analytics</Link>
-                    <Link to="/solutions/ai-software" className="mobile-dropdown-link" onClick={closeMobileMenu}>AI Software</Link>
+                  <div className="mobile-dropdown-column">
+                    <h4 className="mobile-column-title">Analytics</h4>
+                    <Link to="/solutions/data-analytics" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">Data Analytics</span>
+                    </Link>
+                    <Link to="/solutions/ai-software" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">AI Software</span>
+                    </Link>
                   </div>
                   
-                  <div className="mobile-dropdown-section">
-                    <h4 className="mobile-dropdown-section-title">Customer Experience</h4>
-                    <Link to="/solutions/crm" className="mobile-dropdown-link" onClick={closeMobileMenu}>CRM</Link>
-                    <Link to="/solutions/ecommerce" className="mobile-dropdown-link" onClick={closeMobileMenu}>Ecommerce</Link>
-                    <Link to="/solutions/web-portals" className="mobile-dropdown-link" onClick={closeMobileMenu}>Web Portals</Link>
-                    <Link to="/solutions/content-management" className="mobile-dropdown-link" onClick={closeMobileMenu}>Content Management</Link>
-                    <Link to="/solutions/marketing-advertising" className="mobile-dropdown-link" onClick={closeMobileMenu}>Marketing & Advertising</Link>
-                    <Link to="/solutions/kiosk-software" className="mobile-dropdown-link" onClick={closeMobileMenu}>Kiosk Software</Link>
+                  <div className="mobile-dropdown-column">
+                    <h4 className="mobile-column-title">Customer Experience</h4>
+                    <Link to="/solutions/crm" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">CRM</span>
+                    </Link>
+                    <Link to="/solutions/ecommerce" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">Ecommerce</span>
+                    </Link>
+                    <Link to="/solutions/web-portals" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">Web Portals</span>
+                    </Link>
+                    <Link to="/solutions/content-management" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">Content Management</span>
+                    </Link>
+                    <Link to="/solutions/marketing-advertising" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">Marketing & Advertising</span>
+                    </Link>
+                    <Link to="/solutions/kiosk-software" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">Kiosk Software</span>
+                    </Link>
                   </div>
                   
-                  <div className="mobile-dropdown-section">
-                    <h4 className="mobile-dropdown-section-title">HR & Collaboration</h4>
-                    <Link to="/solutions/human-resources" className="mobile-dropdown-link" onClick={closeMobileMenu}>Human Resources</Link>
-                    <Link to="/solutions/intranets" className="mobile-dropdown-link" onClick={closeMobileMenu}>Intranets</Link>
-                    <Link to="/solutions/elearning" className="mobile-dropdown-link" onClick={closeMobileMenu}>eLearning</Link>
+                  <div className="mobile-dropdown-column">
+                    <h4 className="mobile-column-title">HR & Collaboration</h4>
+                    <Link to="/solutions/human-resources" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">Human Resources</span>
+                    </Link>
+                    <Link to="/solutions/intranets" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">Intranets</span>
+                    </Link>
+                    <Link to="/solutions/elearning" className="mobile-dropdown-item" onClick={closeMobileMenu}>
+                      <span className="mobile-item-text">eLearning</span>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -421,7 +563,7 @@ const Header = () => {
 
             <div className="mobile-actions">
               <Link to="/contactform">
-                <button className="get-started-btn">Contact Us</button>
+                <button className="get-started-btn" onClick={closeMobileMenu}>Contact Us</button>
               </Link>
             </div>
           </div>

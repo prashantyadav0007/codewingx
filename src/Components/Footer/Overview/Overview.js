@@ -78,24 +78,23 @@ const Overview = () => {
           <div className="scs-image-container">
             <div className="scs-company-image">
               <div className="scs-serpent-logo">
-                <span className="scs-logo-s">S</span>ERPENT
-                <div className="scs-logo-subtitle">CONSULTING SERVICES PVT. LTD.</div>
+                <span className="scs-logo-s">C</span>odewingX
+                <div className="scs-logo-subtitle">SOFTWARE SERVICES.</div>
               </div>
               <div className="scs-image-overlay"></div>
             </div>
           </div>
           <div className="scs-hero-text">
             <h1 className="scs-hero-title">
-              SerpentCS - Where Quality, Time & Accuracy are valued the most!
+              CodewingX - Where Quality, Time & Accuracy are valued the most!
             </h1>
             <div className="scs-hero-description">
               <p>
-                Started in 2011 by two enthusiastic gentlemen in a 12 × 12 room,
-                SerpentCS began the journey with a powerful dream of growing with
+                Started in 2024 by two enthusiastic gentlemen with a powerful dream of growing with
                 everybody and generating an impact for the <strong>MSME Sector Software Solutions</strong>.
               </p>
               <p>
-                Serpent Consulting Services Pvt. Ltd. - an <strong>ISO 9001: 2008 certified</strong> and{' '}
+                CodewingX - an <strong>ISO 9001: 2008 certified</strong> and{' '}
                 <strong>CMMI3</strong> multinational firm is one of the top contributors in the{' '}
                 <strong>ODOO</strong> Community.
               </p>
@@ -126,7 +125,7 @@ const Overview = () => {
         <h2 className="scs-section-title">Our Quality Process</h2>
         <p className="scs-section-subtitle">
           We give our best efforts to convert your company into a growing and prosperous
-          one. The quality process of Serpent Consulting Services is our main attribute
+          one. The quality process of CodewingX is our main attribute
           and the reasons are described below
         </p>
         
@@ -145,7 +144,7 @@ const Overview = () => {
             <div className="scs-quality-card">
               <h3>Our Team</h3>
               <p>
-                At Serpent Consulting Services, we have a proud team of
+                At CodewingX, we have a proud team of
                 dedicated experts who are always ready for working 24×7 for
                 offering the most committed and dedicated services in the
                 industry to our customers.
@@ -163,10 +162,10 @@ const Overview = () => {
             <div className="scs-quality-card">
               <h3>Our Experience</h3>
               <p>
-                We are having a working experience of around ten years. We
-                appreciate planning and discussing every new project as well
-                as have many years of experience and knowledge which we
-                bring forward.
+                We bring forward innovative expertise and are continuously
+                building our knowledge base. We appreciate planning and 
+                discussing every new project with the latest industry trends
+                and technological advancements.
               </p>
             </div>
           </div>
@@ -252,11 +251,10 @@ const Overview = () => {
             <div className="scs-quality-card">
               <h3>Our Relationships</h3>
               <p>
-                We have gained great and enduring relationships with several
-                clients through the years. We are honored and humbled by
-                this fact and also work for creating that trust with our each
-                client. We wish to become a long-term partner in success and
-                growth of our client's business.
+                We are building great and enduring relationships with our
+                clients. We are honored and humbled by this trust and work
+                to create lasting partnerships. We wish to become a long-term 
+                partner in the success and growth of our client's business.
               </p>
             </div>
           </div>
@@ -265,12 +263,12 @@ const Overview = () => {
 
       {/* Values Section */}
       <section className="scs-values-section scs-observe-on-scroll">
-        <h2 className="scs-section-title">Difference SerpentCS Make</h2>
+        <h2 className="scs-section-title">Difference CodewingX Makes</h2>
         <p className="scs-section-subtitle">
-          We at SerpentCS have chosen 3 central values – <strong>Teamwork, Leadership and Excellence</strong> as the base of our worldwide corporate culture.
+          We at CodewingX have chosen 3 central values – <strong>Teamwork, Leadership and Excellence</strong> as the base of our worldwide corporate culture.
         </p>
         <p className="scs-section-description">
-          These values describe how we desire to perform ourselves and also our business. This qualities helps us create value for our clients, people, and organization.
+          These values describe how we desire to perform ourselves and also our business. These qualities help us create value for our clients, people, and organization.
         </p>
 
         <div className="scs-values-grid">
@@ -368,7 +366,7 @@ const Overview = () => {
         <h2 className="scs-section-title">Service Excellence Pledge</h2>
         <p className="scs-pledge-tagline">Your Business Requirements, Our Impeccable Solutions!</p>
         <p className="scs-section-description">
-          At Serpent Consulting Services, we aim to offer par-excellence solutions to our clients and customers with the latest technology trends. Our dedicated
+          At CodewingX, we aim to offer par-excellence solutions to our clients and customers with the latest technology trends. Our dedicated
           professional team is strongly committed to providing high-end Open Source application solutions to your entire business needs. Our solutions and
           services are bound with innovative and progressive strategies, complying with the industry standards.
         </p>
@@ -420,107 +418,9 @@ const Overview = () => {
         </div>
       </section>
 
-      {/* Certificates and Awards */}
-      <section className="scs-achievements-section scs-observe-on-scroll">
-        <div className="scs-certificates-container">
-          <h2 className="scs-section-title">Certificates</h2>
-          <div className="scs-certificates-grid">
-            <div className="scs-certificate-item">
-              <div className="scs-certificate-frame scs-gold">
-                <div className="scs-certificate-badge">GOLDEN</div>
-                <div className="scs-certificate-content">Certificate of Recognition</div>
-              </div>
-            </div>
-            <div className="scs-certificate-item">
-              <div className="scs-certificate-frame scs-yellow">
-                <div className="scs-certificate-content">Official Certificate</div>
-              </div>
-            </div>
-            <div className="scs-certificate-item">
-              <div className="scs-certificate-frame scs-dark">
-                <div className="scs-certificate-content">CMMI Level-3</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="scs-awards-container">
-          <h2 className="scs-section-title">Awards</h2>
-          <div className="scs-awards-grid">
-            <div className="scs-award-item">
-              <div className="scs-award-trophy scs-style-1"></div>
-            </div>
-            <div className="scs-award-item">
-              <div className="scs-award-trophy scs-style-2"></div>
-            </div>
-            <div className="scs-award-item">
-              <div className="scs-award-trophy scs-style-3"></div>
-            </div>
-            <div className="scs-award-item">
-              <div className="scs-award-trophy scs-style-4"></div>
-            </div>
-            <div className="scs-award-item">
-              <div className="scs-award-trophy scs-style-5"></div>
-            </div>
-            <div className="scs-award-item">
-              <div className="scs-award-trophy scs-style-6"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="scs-team-section scs-observe-on-scroll">
-        <div className="scs-team-intro">
-          <h2 className="scs-section-title">The Team</h2>
-          <div className="scs-ship-captains-card">
-            <h3>Ship Captains</h3>
-            <p>
-              Our experience has always been our key strength &
-              that is exactly what we implement along with an
-              immense dedication to providing results nothing less
-              than the best to our clients. For us, SerpentCS is a
-              platform to incise down the old shatters of 'affordable
-              but low in quality and good quality but out of my
-              range' by providing;
-            </p>
-            <blockquote>
-              "Superior Quality Services which are
-              Undoubtedly in Your Means".
-            </blockquote>
-          </div>
-        </div>
-
-        <div className="scs-team-grid">
-          <div className="scs-team-member">
-            <div className="scs-member-photo scs-photo-1"></div>
-            <h3 className="scs-member-name">Jay Vora</h3>
-            <p className="scs-member-role">Managing Director / CEO</p>
-          </div>
-
-          <div className="scs-team-member">
-            <div className="scs-member-photo scs-photo-2"></div>
-            <h3 className="scs-member-name">Husen Daudi</h3>
-            <p className="scs-member-role">Managing Director / CEO</p>
-          </div>
-
-          <div className="scs-team-member">
-            <div className="scs-member-photo scs-photo-3"></div>
-            <h3 className="scs-member-name">Krunal Soni</h3>
-            <p className="scs-member-role">Techno-Geek<br/>Technical Leader</p>
-          </div>
-
-          <div className="scs-team-member">
-            <div className="scs-member-photo scs-photo-4"></div>
-            <h3 className="scs-member-name">Priyanka Radiya</h3>
-            <p className="scs-member-role">Happiness Officer<br/>HR Manager</p>
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="scs-overview-footer">
-        <p>© 2026 Serpent Consulting Services Pvt. Ltd. - All Rights Reserved</p>
+        <p>© 2026 CodewingX - All Rights Reserved</p>
       </footer>
     </div>
   );

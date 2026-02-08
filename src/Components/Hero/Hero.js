@@ -80,19 +80,12 @@ const Hero = () => {
 
         const updateScrollEffects = () => {
           const scrollY = window.pageYOffset;
-          const windowHeight = window.innerHeight;
 
           const orbs = document.querySelectorAll('.floating-orb');
           orbs.forEach((orb, index) => {
             const speed = 0.3 + (index * 0.1);
             orb.style.transform = `translateY(${scrollY * speed}px)`;
           });
-
-          const scrollIndicator = document.querySelector('.scroll-indicator');
-          if (scrollIndicator) {
-            const opacity = Math.max(0, 1 - (scrollY / windowHeight));
-            scrollIndicator.style.opacity = opacity;
-          }
 
           // Parallax effect on background image
           const bgImage = document.querySelector('.hero-bg-image');
@@ -435,12 +428,6 @@ const Hero = () => {
 
         {/* Carousel Indicators */}
         <div className="carousel-indicators"></div>
-
-        {/* Scroll Indicator */}
-        <div className="scroll-indicator">
-          <div className="scroll-dot"></div>
-          <div className="scroll-line"></div>
-        </div>
       </main>
     </div>
   );
