@@ -118,10 +118,9 @@ const Footer = () => {
               id="policies-links"
               className={`footer-links ${openDropdown === 'policies' ? 'open' : ''}`}
             >
-              <li><a href="/faqs">FAQs</a></li>
-              <li><a href="/terms">Terms &amp; Conditions</a></li>
-              <li><a href="/privacy">Privacy Policy</a></li>
-            </ul>
+              <li><a href="/FAQs">FAQs</a></li>
+              <li><a href="/Terms">Terms &amp; Conditions</a></li>
+<li><a href="/privacy" onclick="return false;">Privacy Policy</a></li>            </ul>
           </div>
 
           {/* Social Media Section */}
@@ -132,15 +131,15 @@ const Footer = () => {
             </h3>
             
             <nav className="social-links" aria-label="Social media links">
-              <a 
-                href="https://facebook.com/codewingx" 
-                className="social-link facebook" 
-                aria-label="Follow us on Facebook"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Facebook size={18} />
-              </a>
+             <a 
+  href="https://www.facebook.com/profile.php?id=61577744577354&sk=about" 
+  className="social-link facebook" 
+  aria-label="Follow us on Facebook"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Facebook size={18} />
+</a>
               <a 
                 href="https://twitter.com/codewingx" 
                 className="social-link twitter" 
@@ -151,7 +150,7 @@ const Footer = () => {
                 <Twitter size={18} />
               </a>
               <a 
-                href="https://instagram.com/codewingx" 
+                href="https://www.instagram.com/codewingx/" 
                 className="social-link instagram" 
                 aria-label="Follow us on Instagram"
                 target="_blank"
@@ -160,7 +159,7 @@ const Footer = () => {
                 <Instagram size={18} />
               </a>
               <a 
-                href="https://linkedin.com/company/codewingx" 
+                href="https://www.linkedin.com/company/codewingx/?viewAsMember=true" 
                 className="social-link linkedin" 
                 aria-label="Follow us on LinkedIn"
                 target="_blank"

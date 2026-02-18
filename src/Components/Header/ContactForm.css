@@ -1,228 +1,262 @@
-/* Contact Form Overlay */
-.contact-overlay {
+/* =========================================
+   ContactForm.css
+   Background: gpt2.png — full bleed, blurred
+   Card: dark purple glassmorphism
+   ========================================= */
+
+:root {
+  --card-gradient: linear-gradient(135deg, #1e1b4b, #581c87 50%, #7c3aed);
+  --accent-glow:   rgba(124, 58, 237, 0.55);
+  --border-glass:  rgba(255, 255, 255, 0.12);
+  --text-primary:  rgba(255, 255, 255, 0.95);
+  --text-muted:    rgba(255, 255, 255, 0.55);
+  --input-bg:      rgba(255, 255, 255, 0.08);
+  --input-border:  rgba(255, 255, 255, 0.18);
+  --input-focus:   rgba(167, 139, 250, 0.6);
+}
+
+/* ---------- Layout ---------- */
+.cf-container {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow: hidden;
+}
+
+/* ---------- Background Image — blurred full bleed ---------- */
+/* ---------- Background Image — small, centered ---------- */
+.cf-bg-image {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px;
+  height: 3000px;
+  background-image: url('/public/gpt2.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.18;
+  filter: blur(2px);
+  z-index: 0;
+  border-radius: 50%;
+}
+
+/* ---------- Dark overlay so card pops ---------- */
+.cf-bg-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  animation: fadeIn 0.3s ease-out;
+  background: rgba(15, 10, 40, 0.45);
+  z-index: 1;
 }
 
-.contact-modal {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  width: 90%;
+/* ---------- Glass Card ---------- */
+.cf-card {
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(
+    135deg,
+    rgba(30, 27, 75, 0.72),
+    rgba(88, 28, 135, 0.68) 50%,
+    rgba(124, 58, 237, 0.65)
+  );
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  border-radius: 24px;
+  box-shadow:
+    0 0 0 1px var(--border-glass),
+    0 24px 64px rgba(0, 0, 0, 0.55),
+    0 0 80px rgba(124, 58, 237, 0.18);
+  width: 100%;
   max-width: 500px;
-  max-height: 90vh;
-  overflow-y: auto;
-  animation: slideIn 0.3s ease-out;
+  padding: 44px 40px;
+  border: 1px solid var(--border-glass);
 }
 
-/* Header */
-.contact-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 30px;
-  border-bottom: 1px solid #e5e5e5;
-  background: #f8f9fa;
-  border-radius: 12px 12px 0 0;
+/* ---------- Header ---------- */
+.cf-header {
+  text-align: center;
+  margin-bottom: 32px;
 }
 
-.contact-header h2 {
+.cf-title {
+  margin: 0 0 10px 0;
+  font-size: 34px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.5px;
+  text-shadow: 0 0 40px rgba(167, 139, 250, 0.6);
+}
+
+.cf-subtitle {
+  color: var(--text-muted);
+  font-size: 15px;
   margin: 0;
-  color: #333;
-  font-size: 24px;
-  font-weight: 600;
 }
 
-.close-btn {
-  background: none;
-  border: none;
-  font-size: 28px;
-  cursor: pointer;
-  color: #666;
-  padding: 0;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: all 0.3s ease;
-}
-
-.close-btn:hover {
-  background: #e9ecef;
-  color: #333;
-}
-
-/* Body */
-.contact-body {
-  padding: 30px;
-}
-
-.contact-form {
+/* ---------- Form ---------- */
+.cf-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
 }
 
-/* Form Groups */
-.form-group {
+.cf-form-group {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 7px;
 }
 
-.form-group label {
+.cf-label {
   font-weight: 600;
-  color: #333;
-  font-size: 14px;
+  color: var(--text-primary);
+  font-size: 13px;
+  letter-spacing: 0.3px;
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
+/* ---------- Inputs ---------- */
+.cf-input,
+.cf-select {
   padding: 12px 16px;
-  border: 2px solid #e1e5e9;
-  border-radius: 8px;
+  border: 1.5px solid var(--input-border);
+  border-radius: 12px;
   font-size: 14px;
-  transition: all 0.3s ease;
   font-family: inherit;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
+  background: var(--input-bg);
+  color: var(--text-primary);
+  transition: all 0.25s ease;
   outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.form-group input.error,
-.form-group select.error,
-.form-group textarea.error {
-  border-color: #dc3545;
+.cf-input::placeholder {
+  color: var(--text-muted);
 }
 
-.form-group select {
+.cf-input:focus,
+.cf-select:focus {
+  border-color: var(--input-focus);
+  background: rgba(255, 255, 255, 0.13);
+  box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.2);
+}
+
+.cf-input--error {
+  border-color: rgba(248, 113, 113, 0.8) !important;
+  background: rgba(220, 38, 38, 0.1) !important;
+}
+
+.cf-input--error:focus {
+  box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.2) !important;
+}
+
+/* ---------- Select Dropdown ---------- */
+.cf-select {
   cursor: pointer;
-  background: white;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a78bfa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 40px;
 }
 
-.form-group textarea {
+.cf-select option {
+  background: #2e1065;
+  color: #fff;
+  font-size: 14px;
+}
+
+.cf-select.cf-input--error {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f87171' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+}
+
+/* ---------- Textarea ---------- */
+.cf-textarea {
   resize: vertical;
   min-height: 100px;
 }
 
-/* Checkbox Group */
-.checkbox-group {
-  margin: 10px 0;
+/* ---------- Scrollbar ---------- */
+.cf-select::-webkit-scrollbar { width: 6px; }
+.cf-select::-webkit-scrollbar-track { background: rgba(124, 58, 237, 0.1); border-radius: 4px; }
+.cf-select::-webkit-scrollbar-thumb { background: #7c3aed; border-radius: 4px; }
+
+/* ---------- Error Message ---------- */
+.cf-error-msg {
+  color: #fca5a5;
+  font-size: 12px;
+  margin-top: 2px;
+  display: block;
 }
 
-.checkbox-label {
+/* ---------- Checkbox ---------- */
+.cf-checkbox-group {
+  margin: 6px 0;
+}
+
+.cf-checkbox-label {
   display: flex;
   align-items: flex-start;
   gap: 12px;
   cursor: pointer;
-  font-size: 14px;
-  line-height: 1.4;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
 }
 
-.checkbox-label input[type="checkbox"] {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-.checkmark {
-  position: relative;
-  height: 20px;
-  width: 20px;
-  background-color: #fff;
-  border: 2px solid #e1e5e9;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-  flex-shrink: 0;
+.cf-checkbox {
+  width: auto !important;
   margin-top: 2px;
+  accent-color: #a78bfa;
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
-.checkbox-label:hover .checkmark {
-  border-color: #007bff;
-}
-
-.checkbox-label input:checked ~ .checkmark {
-  background-color: #007bff;
-  border-color: #007bff;
-}
-
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-  left: 6px;
-  top: 2px;
-  width: 6px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-}
-
-.checkbox-label input:checked ~ .checkmark:after {
-  display: block;
-}
-
-/* Error Messages */
-.error-message {
-  color: #dc3545;
-  font-size: 12px;
-  margin-top: 4px;
-}
-
-/* Submit Button */
-.submit-btn {
-  background: linear-gradient(135deg, #007bff, #0056b3);
+/* ---------- Submit Button ---------- */
+.cf-submit-btn {
+  background: var(--card-gradient);
   color: white;
-  border: none;
-  padding: 14px 30px;
-  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 15px 30px;
+  border-radius: 12px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: 10px;
+  margin-top: 6px;
+  box-shadow: 0 4px 20px var(--accent-glow);
+  width: 100%;
+  letter-spacing: 0.3px;
 }
 
-.submit-btn:hover {
-  background: linear-gradient(135deg, #0056b3, #004085);
+.cf-submit-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+  box-shadow: 0 10px 32px var(--accent-glow);
+  filter: brightness(1.1);
 }
 
-.submit-btn:active {
+.cf-submit-btn:active {
   transform: translateY(0);
 }
 
-/* Success Message */
-.success-message {
+/* ---------- Success State ---------- */
+.cf-success {
   text-align: center;
   padding: 40px 20px;
 }
 
-.success-icon {
+.cf-success-icon {
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, #28a745, #20c997);
+  background: var(--card-gradient);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -231,133 +265,57 @@
   color: white;
   font-size: 40px;
   font-weight: bold;
-  animation: scaleIn 0.5s ease-out;
+  box-shadow: 0 0 40px var(--accent-glow);
+  animation: cf-scale-in 0.5s ease-out;
 }
 
-.success-message h3 {
-  color: #333;
-  font-size: 24px;
+.cf-success-title {
+  font-size: 26px;
+  font-weight: 700;
   margin-bottom: 10px;
+  color: #fff;
+  text-shadow: 0 0 30px rgba(167, 139, 250, 0.5);
 }
 
-.success-message p {
-  color: #666;
-  font-size: 16px;
+.cf-success-text {
+  color: var(--text-muted);
+  font-size: 15px;
   margin-bottom: 30px;
 }
 
-.success-actions {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.new-submission-btn,
-.close-success-btn {
-  padding: 12px 24px;
-  border-radius: 8px;
+.cf-new-btn {
+  background: var(--card-gradient);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 12px 28px;
+  border-radius: 12px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
+  box-shadow: 0 4px 20px var(--accent-glow);
   transition: all 0.3s ease;
-  border: 2px solid #007bff;
 }
 
-.new-submission-btn {
-  background: #007bff;
-  color: white;
+.cf-new-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px var(--accent-glow);
+  filter: brightness(1.1);
 }
 
-.new-submission-btn:hover {
-  background: #0056b3;
-  border-color: #0056b3;
+/* ---------- Animations ---------- */
+@keyframes cf-scale-in {
+  from { transform: scale(0); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
 }
 
-.close-success-btn {
-  background: white;
-  color: #007bff;
-}
-
-.close-success-btn:hover {
-  background: #f8f9fa;
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateY(-50px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    transform: scale(0);
-  }
-  to {
-    transform: scale(1);
-  }
-}
-
-/* Responsive Design */
+/* ---------- Responsive ---------- */
 @media (max-width: 768px) {
-  .contact-modal {
-    width: 95%;
-    margin: 20px;
-  }
-  
-  .contact-header {
-    padding: 15px 20px;
-  }
-  
-  .contact-body {
-    padding: 20px;
-  }
-  
-  .contact-header h2 {
-    font-size: 20px;
-  }
-  
-  .success-actions {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .new-submission-btn,
-  .close-success-btn {
-    width: 100%;
-    max-width: 200px;
-  }
+  .cf-card { padding: 30px 24px; }
+  .cf-title { font-size: 28px; }
 }
 
 @media (max-width: 480px) {
-  .contact-modal {
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
-  }
-  
-  .contact-header {
-    border-radius: 0;
-  }
-  
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    padding: 10px 12px;
-  }
+  .cf-card { padding: 24px 16px; border-radius: 16px; }
+  .cf-title { font-size: 24px; }
+  .cf-submit-btn { padding: 14px 20px; font-size: 15px; }
 }

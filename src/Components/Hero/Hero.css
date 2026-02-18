@@ -123,32 +123,32 @@ body {
   mix-blend-mode: screen;
 }
 
-.orb-1 {
+/* .orb-1 {
   width: 500px;
   height: 500px;
   background: linear-gradient(135deg, #667eea, #764ba2);
   top: -10%;
   right: -5%;
   animation-delay: 0s;
-}
+} */
 
-.orb-2 {
+/* .orb-2 {
   width: 400px;
   height: 400px;
   background: linear-gradient(135deg, #f093fb, #f5576c);
   bottom: -5%;
   left: -10%;
   animation-delay: -8s;
-}
+} */
 
-.orb-3 {
+/* .orb-3 {
   width: 350px;
   height: 350px;
   background: linear-gradient(135deg, #4facfe, #00f2fe);
   top: 40%;
   left: 50%;
   animation-delay: -16s;
-}
+} */
 
 @keyframes float {
   0%, 100% { 
