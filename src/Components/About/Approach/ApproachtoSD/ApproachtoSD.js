@@ -8,10 +8,10 @@ const ApproachtoSD = () => {
       <div className="header-section">
         <div className="header-content">
           <div className="header-text">
-            <h1>How ScienceSoft Approaches Software Development Projects</h1>
+            <h1>How CodeWingX Approaches Software Development Projects</h1>
             <p className="header-description">
               Achieving project goals despite time and budget constraints and changing
-              requirements is ScienceSoft's top priority. You set the goals, we drive the
+              requirements is CodeWingX's top priority. You set the goals, we drive the
               project to achieve them.
             </p>
             <p className="header-description">
@@ -180,7 +180,7 @@ const ApproachtoSD = () => {
               <span>👥</span>
             </div>
             <h3>How we structure effective development teams</h3>
-            <p>Learn how ScienceSoft organizes dynamic, collaborative teams to deliver high-quality software on time and within budget consistently.</p>
+            <p>Learn how CodeWingX organizes dynamic, collaborative teams to deliver high-quality software on time and within budget consistently.</p>
             <a href="/team-structure" className="learn-more">Learn more →</a>
           </div>
           <div className="card">
@@ -188,7 +188,7 @@ const ApproachtoSD = () => {
               <span>🤖</span>
             </div>
             <h3>How we automate development processes</h3>
-            <p>Discover how ScienceSoft leverages DevOps to enable rapid, reliable software delivery with multiple daily deployments and failure rates under 5%.</p>
+            <p>Discover how CodeWingX leverages DevOps to enable rapid, reliable software delivery with multiple daily deployments and failure rates under 5%.</p>
             <a href="/automation" className="learn-more">Learn more →</a>
           </div>
           <div className="card">
@@ -196,7 +196,7 @@ const ApproachtoSD = () => {
               <span>🔧</span>
             </div>
             <h3>How we apply TDD and BDD</h3>
-            <p>Explore how ScienceSoft combines TDD, BDD, and flexible methodologies to ensure quality while adapting to project needs.</p>
+            <p>Explore how CodeWingX combines TDD, BDD, and flexible methodologies to ensure quality while adapting to project needs.</p>
             <a href="/tdd-bdd" className="learn-more">Learn more →</a>
           </div>
           <div className="card">
@@ -204,7 +204,7 @@ const ApproachtoSD = () => {
               <span>⚡</span>
             </div>
             <h3>How we manage application performance</h3>
-            <p>Explore ScienceSoft's best practices for application performance planning, development, and management, including benchmarks for various application types.</p>
+            <p>Explore CodeWingX's best practices for application performance planning, development, and management, including benchmarks for various application types.</p>
             <a href="/performance-management" className="learn-more">Learn more →</a>
           </div>
         </div>
@@ -259,7 +259,7 @@ const ApproachtoSD = () => {
               <span>🔄</span>
             </div>
             <h3>Scrum-based development process</h3>
-            <p>See how Scrum is implemented at ScienceSoft, how we work closely with our clients, and what they can anticipate at each step of the journey.</p>
+            <p>See how Scrum is implemented at CodeWingX, how we work closely with our clients, and what they can anticipate at each step of the journey.</p>
             <a href="/scrum" className="learn-more">Learn more →</a>
           </div>
           <div className="card">
@@ -276,7 +276,7 @@ const ApproachtoSD = () => {
       {/* CTA Section */}
       <div className="cta-section">
         <div className="cta-content">
-          <h2>Trust ScienceSoft with Your Development Needs</h2>
+          <h2>Trust CodeWingX with Your Development Needs</h2>
           <p>Join the ranks of our satisfied clients who have benefited from our development practices in over 4,000 successful projects. We look forward to starting this journey with you!</p>
           <button className="cta-button" onClick={() => window.location.href = '/contact'}>
             Let's partner up

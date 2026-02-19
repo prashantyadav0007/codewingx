@@ -126,6 +126,9 @@ body {
 
 .nav-dropdown {
   position: relative;
+  /* Extend the hover area downward to bridge button and dropdown */
+  padding-bottom: 0.75rem;
+  margin-bottom: -0.75rem;
 }
 
 .dropdown-trigger {
@@ -146,7 +149,8 @@ body {
 /* Dropdown Menu Container */
 .dropdown-menu {
   position: absolute;
-  top: calc(100% + 1rem);
+  /* FIX: removed the 1rem gap — dropdown now sits flush below the nav item */
+  top: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(-10px);
   min-width: 500px;
@@ -158,7 +162,8 @@ body {
   backdrop-filter: blur(20px);
   border: 1px solid rgba(139, 92, 246, 0.3);
   border-radius: 16px;
-  padding: 1.5rem;
+  /* FIX: extra top padding acts as invisible bridge so cursor never leaves hover zone */
+  padding: 1rem 1.5rem 1.5rem 1.5rem;
   opacity: 0;
   visibility: hidden;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
